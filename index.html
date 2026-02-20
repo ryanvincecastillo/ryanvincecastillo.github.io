@@ -30,16 +30,35 @@
 
   <main id="home" class="layout">
     <section class="card hero reveal">
-      <p class="eyebrow">Software Developer</p>
-      <h1>Ryan Vince Castillo</h1>
-      <p class="subtitle">
-        Results-driven full-stack developer with 7+ years of experience building scalable
-        enterprise and cloud-based software.
-      </p>
-      <div class="chips">
-        <span>Backend</span>
-        <span>Cloud & DevOps</span>
-        <span>Architecture</span>
+      <div class="hero-content">
+        <div class="hero-main">
+          <p class="eyebrow">Software Developer</p>
+          <h1>Ryan Vince Castillo</h1>
+          <p class="subtitle">
+            Results-driven full-stack developer with 7+ years of experience building scalable
+            enterprise and cloud-based software, now focused on AI-assisted engineering,
+            LLM workflows, and MCP server development in Python.
+          </p>
+          <div class="chips">
+            <span>Backend</span>
+            <span>Cloud & DevOps</span>
+            <span>AI & LLM Engineering</span>
+            <span>Architecture</span>
+          </div>
+        </div>
+        <figure class="hero-photo" aria-label="Profile photo">
+          <img
+            src="files/profile-photo.jpg"
+            alt="Ryan Vince Castillo portrait"
+            loading="lazy"
+            onerror="this.parentElement.classList.add('is-missing')"
+            onload="this.parentElement.classList.remove('is-missing')"
+          >
+          <figcaption class="hero-photo-fallback" aria-hidden="true">
+            <strong>RVC</strong>
+            <span>Add photo</span>
+          </figcaption>
+        </figure>
       </div>
       <div class="hero-cta">
         <a href="#projects" class="button">Explore Projects</a>
@@ -48,8 +67,25 @@
     </section>
 
     <section class="card orb-card reveal">
-      <h2>Build Philosophy</h2>
-      <p>Scalable systems, clean architecture, and practical delivery velocity.</p>
+      <!-- <h2>Build Philosophy</h2> -->
+      <!-- <p class="philosophy-powered">Powered by my LLM workflow and MCP integrations.</p> -->
+      <div class="resume-chat" aria-label="Talk to my resume chat widget">
+        <div class="resume-chat-log" id="resume-chat-log" role="log" aria-live="polite">
+          <article class="chat-msg bot">
+            <p>Hi, I’m Ryan’s resume agent. Ask about stack, AI workflow, or experience.</p>
+          </article>
+        </div>
+        <div class="resume-chat-prompts" aria-label="Quick questions">
+          <button type="button" class="prompt-btn" data-prompt="What's your stack?">What's your stack?</button>
+          <button type="button" class="prompt-btn" data-prompt="How do you use AI in development?">How do you use AI in development?</button>
+          <button type="button" class="prompt-btn" data-prompt="Tell me a joke about Python.">Tell me a joke about Python.</button>
+        </div>
+        <form id="resume-chat-form" class="resume-chat-form">
+          <label class="sr-only" for="resume-chat-input">Ask a question</label>
+          <input id="resume-chat-input" type="text" maxlength="180" placeholder="Ask: What's your stack?" autocomplete="off">
+          <button type="submit" class="button">Send</button>
+        </form>
+      </div>
       <div class="orbs" aria-hidden="true">
         <span class="orb orb-a"></span>
         <span class="orb orb-b"></span>
@@ -98,6 +134,10 @@
           <p>HTML5, CSS3, AngularJS, Angular, Next.js, Microfrontends</p>
         </div>
         <div>
+          <h3>CMS & Site Builders</h3>
+          <p>Wix (Production Experience), WordPress, Framer, Shopify, Webflow</p>
+        </div>
+        <div>
           <h3>Mobile</h3>
           <p>React Native, Flutter, .NET MAUI</p>
         </div>
@@ -110,12 +150,16 @@
           <p>Azure Storage, Docker, Kubernetes, CI/CD Pipelines</p>
         </div>
         <div>
+          <h3>AI & LLM</h3>
+          <p>Claude Code, Codex, Cursor, ChatGPT, LM Studio, Ollama, Local LLM Workflows, MCP Servers (Python)</p>
+        </div>
+        <div>
           <h3>Architecture</h3>
           <p>Clean Architecture, DDD, Event-Driven Architecture, CQRS</p>
         </div>
         <div>
           <h3>Tools</h3>
-          <p>GitHub, GitLab, Bitbucket, Tailwind CSS, Bootstrap, Material UI</p>
+          <p>GitHub, GitLab, Bitbucket, Tailwind CSS, Bootstrap, Material UI, VS Code</p>
         </div>
       </div>
     </section>

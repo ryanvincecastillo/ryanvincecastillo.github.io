@@ -8,8 +8,22 @@ const carouselWindow = document.querySelector(".carousel-window");
 const prevButton = document.getElementById("carousel-prev");
 const nextButton = document.getElementById("carousel-next");
 const filterButtons = document.querySelectorAll(".filter-btn");
+const resumeChatLog = document.getElementById("resume-chat-log");
+const resumeChatForm = document.getElementById("resume-chat-form");
+const resumeChatInput = document.getElementById("resume-chat-input");
+const promptButtons = document.querySelectorAll(".prompt-btn");
+const RESUME_AGENT_ENDPOINT = window.RESUME_AGENT_ENDPOINT || "";
 
 const projects = [
+  {
+    name: "MCP Integration Server",
+    description: "Python-based MCP server for tool orchestration, secure context passing, and AI workflow automation across local and cloud environments.",
+    technologies: ["Python", "MCP", "REST API", "Docker"],
+    type: "webapp",
+    platform: ["Web", "Desktop-Linux", "Desktop-macOS", "Desktop-Windows"],
+    live: "",
+    github: "https://github.com/example/mcp-integration-server"
+  },
   {
     name: "Atlas ERP Suite",
     description: "Enterprise resource planning portal with role-based modules for operations, HR, and finance.",
@@ -139,6 +153,78 @@ function createLinks(live, github) {
   return `<div class="project-links">${liveNode}${repoNode}</div>`;
 }
 
+function appendChatMessage(role, message) {
+  if (!resumeChatLog) {
+    return;
+  }
+  const article = document.createElement("article");
+  article.className = `chat-msg ${role}`;
+  const content = document.createElement("p");
+  content.textContent = message;
+  article.appendChild(content);
+  resumeChatLog.appendChild(article);
+  resumeChatLog.scrollTop = resumeChatLog.scrollHeight;
+}
+
+function getLocalResumeReply(question) {
+  const prompt = question.toLowerCase();
+
+  if (prompt.includes("stack") || prompt.includes("tech")) {
+    return "Core stack: .NET, Node.js/NestJS, TypeScript, SQL Server/PostgreSQL, Docker, Azure, plus AI tooling with ChatGPT, Codex, Claude Code, Ollama, and LM Studio.";
+  }
+  if (prompt.includes("ai") || prompt.includes("llm")) {
+    return "I use AI to accelerate coding, reviews, and prototyping, then I validate outputs with tests and architecture checks before shipping.";
+  }
+  if (prompt.includes("mcp")) {
+    return "I build MCP servers in Python to orchestrate tools, pass context safely, and integrate AI workflows into practical developer operations.";
+  }
+  if (prompt.includes("python") && prompt.includes("joke")) {
+    return "Python joke: I had a joke about indentation... but it kept shifting to the right.";
+  }
+  if (prompt.includes("experience") || prompt.includes("years")) {
+    return "I have 7+ years of software development experience across enterprise systems, backend services, cloud deployments, and web platforms.";
+  }
+  if (prompt.includes("cms") || prompt.includes("wix") || prompt.includes("wordpress") || prompt.includes("framer")) {
+    return "I have production CMS experience with Wix and can quickly adapt to WordPress, Framer, and other site builders based on project requirements.";
+  }
+
+  return "Great question. I focus on scalable backend systems, practical AI workflows, and fast iterative delivery. Try asking about stack, MCP, or AI workflow.";
+}
+
+async function getResumeReply(question) {
+  if (!RESUME_AGENT_ENDPOINT) {
+    return getLocalResumeReply(question);
+  }
+
+  try {
+    const response = await fetch(RESUME_AGENT_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question })
+    });
+    if (!response.ok) {
+      return getLocalResumeReply(question);
+    }
+    const payload = await response.json();
+    return typeof payload.reply === "string" && payload.reply.trim()
+      ? payload.reply.trim()
+      : getLocalResumeReply(question);
+  } catch {
+    return getLocalResumeReply(question);
+  }
+}
+
+async function handleResumeChatQuestion(rawQuestion) {
+  const question = rawQuestion.trim();
+  if (!question) {
+    return;
+  }
+
+  appendChatMessage("user", question);
+  const reply = await getResumeReply(question);
+  appendChatMessage("bot", reply);
+}
+
 let activeFilter = "all";
 let visibleProjects = [...projects];
 
@@ -199,6 +285,10 @@ function renderProjects() {
 let cardsPerView = 3;
 let currentIndex = 0;
 let autoSlideTimer = null;
+let manualScrollResumeTimer = null;
+let isManualScrollActive = false;
+let isCarouselHovered = false;
+let isCarouselFocused = false;
 
 function updateCardsPerView() {
   if (window.matchMedia("(max-width: 760px)").matches) {
@@ -311,6 +401,40 @@ function stopAutoSlide() {
   }
 }
 
+function clearManualScrollResumeTimer() {
+  if (manualScrollResumeTimer) {
+    clearTimeout(manualScrollResumeTimer);
+    manualScrollResumeTimer = null;
+  }
+}
+
+function canAutoSlide() {
+  const hasEnoughProjects = visibleProjects.length > cardsPerView;
+  return hasEnoughProjects && !isManualScrollActive && !isCarouselHovered && !isCarouselFocused;
+}
+
+function startAutoSlideIfAllowed() {
+  if (canAutoSlide()) {
+    startAutoSlide();
+    return;
+  }
+  stopAutoSlide();
+}
+
+function scheduleManualScrollResume() {
+  clearManualScrollResumeTimer();
+  manualScrollResumeTimer = window.setTimeout(() => {
+    isManualScrollActive = false;
+    startAutoSlideIfAllowed();
+  }, 1100);
+}
+
+function markManualScrollInteraction() {
+  isManualScrollActive = true;
+  stopAutoSlide();
+  scheduleManualScrollResume();
+}
+
 function applyTheme(theme) {
   const isDark = theme === "dark";
   body.classList.toggle("dark", isDark);
@@ -326,7 +450,7 @@ const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
 renderProjects();
 updateCardsPerView();
 applyTheme(initialTheme);
-startAutoSlide();
+startAutoSlideIfAllowed();
 
 themeToggle.addEventListener("click", () => {
   const nextTheme = body.classList.contains("dark") ? "light" : "dark";
@@ -334,14 +458,34 @@ themeToggle.addEventListener("click", () => {
   localStorage.setItem("theme", nextTheme);
 });
 
+resumeChatForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const value = resumeChatInput?.value || "";
+  handleResumeChatQuestion(value);
+  if (resumeChatInput) {
+    resumeChatInput.value = "";
+    resumeChatInput.focus();
+  }
+});
+
+promptButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const prompt = button.dataset.prompt || "";
+    if (resumeChatInput) {
+      resumeChatInput.value = prompt;
+    }
+    handleResumeChatQuestion(prompt);
+  });
+});
+
 nextButton.addEventListener("click", () => {
   next();
-  startAutoSlide();
+  startAutoSlideIfAllowed();
 });
 
 prevButton.addEventListener("click", () => {
   prev();
-  startAutoSlide();
+  startAutoSlideIfAllowed();
 });
 
 filterButtons.forEach((button) => {
@@ -359,7 +503,9 @@ filterButtons.forEach((button) => {
       carouselWindow.scrollTo({ left: 0, behavior: "auto" });
     }
     updateCarouselButtons();
-    startAutoSlide();
+    isManualScrollActive = false;
+    clearManualScrollResumeTimer();
+    startAutoSlideIfAllowed();
 
     filterButtons.forEach((filterButton) => {
       const isActive = filterButton.dataset.filter === activeFilter;
@@ -369,11 +515,29 @@ filterButtons.forEach((button) => {
   });
 });
 
-carouselWindow?.addEventListener("mouseenter", stopAutoSlide);
-carouselWindow?.addEventListener("mouseleave", startAutoSlide);
-carouselWindow?.addEventListener("focusin", stopAutoSlide);
-carouselWindow?.addEventListener("focusout", startAutoSlide);
+carouselWindow?.addEventListener("mouseenter", () => {
+  isCarouselHovered = true;
+  stopAutoSlide();
+});
+carouselWindow?.addEventListener("mouseleave", () => {
+  isCarouselHovered = false;
+  startAutoSlideIfAllowed();
+});
+carouselWindow?.addEventListener("focusin", () => {
+  isCarouselFocused = true;
+  stopAutoSlide();
+});
+carouselWindow?.addEventListener("focusout", () => {
+  isCarouselFocused = false;
+  startAutoSlideIfAllowed();
+});
+carouselWindow?.addEventListener("wheel", markManualScrollInteraction, { passive: true });
+carouselWindow?.addEventListener("touchstart", markManualScrollInteraction, { passive: true });
+carouselWindow?.addEventListener("pointerdown", markManualScrollInteraction, { passive: true });
 carouselWindow?.addEventListener("scroll", () => {
+  if (isManualScrollActive) {
+    scheduleManualScrollResume();
+  }
   updateIndexFromScroll();
   updateCarouselButtons();
 }, { passive: true });
@@ -386,6 +550,7 @@ window.addEventListener("resize", () => {
     goTo(Math.min(currentIndex, maxIndex()), "auto");
   }
   updateCarouselButtons();
+  startAutoSlideIfAllowed();
 });
 
 yearNode.textContent = String(new Date().getFullYear());
