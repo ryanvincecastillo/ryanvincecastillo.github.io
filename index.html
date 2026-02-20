@@ -59,9 +59,13 @@
     <section id="projects" class="card projects-showcase reveal">
       <div class="projects-head">
         <div>
-          <p class="eyebrow">Featured Work</p>
-          <h2>Projects First</h2>
-          <p class="meta">10 showcase examples with placeholders you can replace later.</p>
+          <h2>Featured Work</h2>
+          <div class="project-filters" role="group" aria-label="Filter projects by platform type">
+            <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter-btn" type="button" data-filter="web" aria-pressed="false">Web</button>
+            <button class="filter-btn" type="button" data-filter="mobile" aria-pressed="false">Mobile</button>
+            <button class="filter-btn" type="button" data-filter="desktop" aria-pressed="false">Desktop</button>
+          </div>
         </div>
         <div class="carousel-controls">
           <button id="carousel-prev" class="carousel-btn" aria-label="Previous projects">Prev</button>
@@ -90,7 +94,7 @@
         </div>
         <div>
           <h3>Mobile</h3>
-          <p>Flutter, .NET MAUI</p>
+          <p>React Native, Flutter, .NET MAUI</p>
         </div>
         <div>
           <h3>Databases</h3>

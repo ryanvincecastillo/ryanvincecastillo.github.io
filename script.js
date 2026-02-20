@@ -6,6 +6,7 @@ const yearNode = document.getElementById("year");
 const projectsTrack = document.getElementById("projects-track");
 const prevButton = document.getElementById("carousel-prev");
 const nextButton = document.getElementById("carousel-next");
+const filterButtons = document.querySelectorAll(".filter-btn");
 
 const projects = [
   {
@@ -102,8 +103,32 @@ function createLinks(live, github) {
   return `<div class="project-links">${liveNode}${repoNode}</div>`;
 }
 
+let activeFilter = "all";
+let visibleProjects = [...projects];
+
+function getProjectType(project) {
+  const supportsWeb = project.platform.some((item) => item.startsWith("Web"));
+  const supportsMobile = project.platform.some((item) => item.startsWith("Mobile"));
+  const supportsDesktop = project.platform.some((item) => item.startsWith("Desktop"));
+
+  return {
+    web: supportsWeb,
+    mobile: supportsMobile,
+    desktop: supportsDesktop
+  };
+}
+
+function applyProjectFilter(type) {
+  if (type === "all") {
+    visibleProjects = [...projects];
+    return;
+  }
+
+  visibleProjects = projects.filter((project) => getProjectType(project)[type]);
+}
+
 function renderProjects() {
-  projectsTrack.innerHTML = projects
+  projectsTrack.innerHTML = visibleProjects
     .map((project, idx) => {
       return `
         <article class="project-card">
@@ -121,6 +146,10 @@ function renderProjects() {
       `;
     })
     .join("");
+
+  if (!visibleProjects.length) {
+    projectsTrack.innerHTML = '<p class="empty-projects">No projects found for this type.</p>';
+  }
 }
 
 let cardsPerView = 3;
@@ -140,18 +169,24 @@ function updateCardsPerView() {
 }
 
 function maxIndex() {
-  return Math.max(0, projects.length - cardsPerView);
+  return Math.max(0, visibleProjects.length - cardsPerView);
 }
 
 function updateCarousel() {
   const firstCard = projectsTrack.querySelector(".project-card");
   if (!firstCard) {
+    prevButton.disabled = true;
+    nextButton.disabled = true;
     return;
   }
   const gap = parseFloat(window.getComputedStyle(projectsTrack).columnGap || window.getComputedStyle(projectsTrack).gap || "0");
   const width = firstCard.getBoundingClientRect().width;
   const offset = currentIndex * (width + gap);
   projectsTrack.style.transform = `translateX(-${offset}px)`;
+
+  const disableNav = visibleProjects.length <= cardsPerView;
+  prevButton.disabled = disableNav;
+  nextButton.disabled = disableNav;
 }
 
 function goTo(index) {
@@ -219,6 +254,29 @@ nextButton.addEventListener("click", () => {
 prevButton.addEventListener("click", () => {
   prev();
   startAutoSlide();
+});
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const selectedFilter = button.dataset.filter;
+    if (!selectedFilter || selectedFilter === activeFilter) {
+      return;
+    }
+
+    activeFilter = selectedFilter;
+    applyProjectFilter(activeFilter);
+    currentIndex = 0;
+    renderProjects();
+    updateCardsPerView();
+    updateCarousel();
+    startAutoSlide();
+
+    filterButtons.forEach((filterButton) => {
+      const isActive = filterButton.dataset.filter === activeFilter;
+      filterButton.classList.toggle("is-active", isActive);
+      filterButton.setAttribute("aria-pressed", String(isActive));
+    });
+  });
 });
 
 projectsTrack.addEventListener("mouseenter", stopAutoSlide);
