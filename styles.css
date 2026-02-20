@@ -130,9 +130,10 @@ body {
 }
 
 .theme-label {
-  width: 2.3rem;
+  width: 2.8rem;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   line-height: 1;
   font-size: 0.82rem;
   z-index: 1;
