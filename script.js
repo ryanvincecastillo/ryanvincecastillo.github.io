@@ -13,6 +13,7 @@ const projects = [
     name: "Atlas ERP Suite",
     description: "Enterprise resource planning portal with role-based modules for operations, HR, and finance.",
     technologies: ["ASP.NET Core", "Angular", "MSSQL", "Docker"],
+    type: "webapp",
     platform: ["Web", "Desktop-Windows", "Desktop-macOS", "Desktop-Linux"],
     live: "https://example.com/atlas-erp",
     github: "https://github.com/example/atlas-erp"
@@ -21,6 +22,7 @@ const projects = [
     name: "Freight Flow Monitor",
     description: "Logistics dashboard for real-time container tracking, route events, and shipment status alerts.",
     technologies: ["Node.js", "NestJS", "PostgreSQL", "Azure"],
+    type: "webapp",
     platform: ["Web", "Desktop-Windows", "Desktop-macOS"],
     live: "",
     github: "https://github.com/example/freight-flow-monitor"
@@ -37,6 +39,7 @@ const projects = [
     name: "PulseOps Admin",
     description: "Operational command center for SaaS metrics, environment health, and incident responses.",
     technologies: ["Next.js", "TypeScript", "Tailwind", "MongoDB"],
+    type: "webapp",
     platform: ["Web", "Mobile-Android", "Mobile-iOS"],
     live: "https://example.com/pulseops",
     github: "https://github.com/example/pulseops-admin"
@@ -45,6 +48,7 @@ const projects = [
     name: "Clinic Queue Mobile",
     description: "Patient queuing and consultation booking app with push notifications and digital triage forms.",
     technologies: ["Flutter", "Firebase", "Cloud Functions", "Dart"],
+    type: "webapp",
     platform: ["Mobile-Android", "Mobile-iOS", "Web"],
     live: "https://example.com/clinic-queue",
     github: "https://github.com/example/clinic-queue-mobile"
@@ -53,6 +57,7 @@ const projects = [
     name: "Vendor Portal X",
     description: "B2B vendor onboarding and document compliance portal with e-sign and verification workflow.",
     technologies: ["Angular", ".NET API", "Azure Blob", "Redis"],
+    type: "webapp",
     platform: ["Web", "Desktop-Windows", "Desktop-macOS", "Desktop-Linux"],
     live: "https://example.com/vendor-portal-x",
     github: "https://github.com/example/vendor-portal-x"
@@ -69,6 +74,7 @@ const projects = [
     name: "EventGrid Microservices",
     description: "Event-driven microservices stack implementing CQRS for scalable transaction processing.",
     technologies: ["Go", "gRPC", "Kafka", "Kubernetes"],
+    type: "webapp",
     platform: ["Web", "Desktop-Linux"],
     live: "",
     github: "https://github.com/example/eventgrid-microservices"
@@ -77,6 +83,7 @@ const projects = [
     name: "DevTrack Pipeline",
     description: "CI/CD observability app aggregating pipeline performance and deployment reliability trends.",
     technologies: ["TypeScript", "Node.js", "PostgreSQL", "Chart.js"],
+    type: "webapp",
     platform: ["Web", "Desktop-Windows", "Desktop-macOS"],
     live: "https://example.com/devtrack",
     github: "https://github.com/example/devtrack-pipeline"
@@ -85,9 +92,37 @@ const projects = [
     name: "ClientHub Portfolio CMS",
     description: "Headless CMS and personalization layer powering marketing sites and content localization.",
     technologies: ["Next.js", "NestJS", "MongoDB", "Docker"],
+    type: "website",
     platform: ["Web", "Mobile-Android", "Mobile-iOS", "Desktop-Windows"],
     live: "https://example.com/clienthub",
     github: "https://github.com/example/clienthub-cms"
+  },
+  {
+    name: "Casa Luntian Villas",
+    description: "Boutique resort website with gallery-driven storytelling, room highlights, and inquiry forms built in Wix.",
+    technologies: ["Wix", "Velo", "Wix Forms", "SEO"],
+    type: "website",
+    platform: ["Web", "Mobile-iOS", "Mobile-Android"],
+    live: "https://example.com/casa-luntian-villas",
+    github: ""
+  },
+  {
+    name: "Northline Dental Care",
+    description: "Clinic website on Wix featuring service pages, appointment request flow, and location-focused local SEO.",
+    technologies: ["Wix", "Wix Bookings", "Wix CMS", "SEO"],
+    type: "website",
+    platform: ["Web", "Mobile-iOS", "Mobile-Android"],
+    live: "https://example.com/northline-dental-care",
+    github: ""
+  },
+  {
+    name: "Evercraft Interiors",
+    description: "Wix-powered portfolio website for an interior design studio with project showcases and lead capture.",
+    technologies: ["Wix", "Wix Studio", "Wix Forms", "Analytics"],
+    type: "website",
+    platform: ["Web", "Mobile-iOS", "Mobile-Android"],
+    live: "https://example.com/evercraft-interiors",
+    github: ""
   }
 ];
 
@@ -107,12 +142,14 @@ let activeFilter = "all";
 let visibleProjects = [...projects];
 
 function getProjectType(project) {
+  const projectType = (project.type || "").toLowerCase();
   const supportsWeb = project.platform.some((item) => item.startsWith("Web"));
   const supportsMobile = project.platform.some((item) => item.startsWith("Mobile"));
   const supportsDesktop = project.platform.some((item) => item.startsWith("Desktop"));
 
   return {
-    web: supportsWeb,
+    website: supportsWeb && projectType === "website",
+    webapp: supportsWeb && projectType === "webapp",
     mobile: supportsMobile,
     desktop: supportsDesktop
   };
