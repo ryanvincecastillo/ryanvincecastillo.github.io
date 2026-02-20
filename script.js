@@ -4,6 +4,7 @@ const themeIcon = document.querySelector(".theme-icon");
 const themeLabel = document.querySelector(".theme-label");
 const yearNode = document.getElementById("year");
 const projectsTrack = document.getElementById("projects-track");
+const carouselWindow = document.querySelector(".carousel-window");
 const prevButton = document.getElementById("carousel-prev");
 const nextButton = document.getElementById("carousel-next");
 const filterButtons = document.querySelectorAll(".filter-btn");
@@ -187,6 +188,12 @@ function renderProjects() {
   if (!visibleProjects.length) {
     projectsTrack.innerHTML = '<p class="empty-projects">No projects found for this type.</p>';
   }
+
+  window.requestAnimationFrame(() => {
+    updateCardsPerView();
+    syncCardWidth();
+    updateCarouselButtons();
+  });
 }
 
 let cardsPerView = 3;
@@ -209,29 +216,73 @@ function maxIndex() {
   return Math.max(0, visibleProjects.length - cardsPerView);
 }
 
-function updateCarousel() {
+function syncCardWidth() {
   const firstCard = projectsTrack.querySelector(".project-card");
   if (!firstCard) {
+    projectsTrack.style.removeProperty("--project-card-width");
+    return;
+  }
+  const gap = parseFloat(window.getComputedStyle(projectsTrack).columnGap || window.getComputedStyle(projectsTrack).gap || "0");
+  const availableWidth = carouselWindow ? carouselWindow.clientWidth : 0;
+  if (!availableWidth) {
+    return;
+  }
+  const cardWidth = Math.max(220, (availableWidth - gap * (cardsPerView - 1)) / cardsPerView);
+  projectsTrack.style.setProperty("--project-card-width", `${cardWidth}px`);
+}
+
+function getScrollStep() {
+  const firstCard = projectsTrack.querySelector(".project-card");
+  if (!firstCard) {
+    return 0;
+  }
+  const gap = parseFloat(window.getComputedStyle(projectsTrack).columnGap || window.getComputedStyle(projectsTrack).gap || "0");
+  return firstCard.getBoundingClientRect().width + gap;
+}
+
+function updateCarouselButtons() {
+  const firstCard = projectsTrack.querySelector(".project-card");
+  if (!firstCard || !carouselWindow) {
     prevButton.disabled = true;
     nextButton.disabled = true;
     return;
   }
-  const gap = parseFloat(window.getComputedStyle(projectsTrack).columnGap || window.getComputedStyle(projectsTrack).gap || "0");
-  const width = firstCard.getBoundingClientRect().width;
-  const offset = currentIndex * (width + gap);
-  projectsTrack.style.transform = `translateX(-${offset}px)`;
 
-  const disableNav = visibleProjects.length <= cardsPerView;
-  prevButton.disabled = disableNav;
-  nextButton.disabled = disableNav;
+  const maxScrollLeft = Math.max(0, carouselWindow.scrollWidth - carouselWindow.clientWidth);
+  const nearStart = carouselWindow.scrollLeft <= 4;
+  const nearEnd = carouselWindow.scrollLeft >= maxScrollLeft - 4;
+  const cannotScroll = maxScrollLeft <= 4;
+
+  prevButton.disabled = cannotScroll || nearStart;
+  nextButton.disabled = cannotScroll || nearEnd;
 }
 
-function goTo(index) {
+function updateIndexFromScroll() {
+  if (!carouselWindow) {
+    return;
+  }
+  const step = getScrollStep();
+  if (!step) {
+    currentIndex = 0;
+    return;
+  }
+  currentIndex = Math.round(carouselWindow.scrollLeft / step);
+}
+
+function goTo(index, behavior = "smooth") {
+  if (!carouselWindow) {
+    return;
+  }
+  const step = getScrollStep();
+  if (!step) {
+    return;
+  }
   currentIndex = Math.max(0, Math.min(index, maxIndex()));
-  updateCarousel();
+  carouselWindow.scrollTo({ left: currentIndex * step, behavior });
 }
 
 function next() {
+  updateIndexFromScroll();
   if (currentIndex >= maxIndex()) {
     goTo(0);
     return;
@@ -240,6 +291,7 @@ function next() {
 }
 
 function prev() {
+  updateIndexFromScroll();
   if (currentIndex <= 0) {
     goTo(maxIndex());
     return;
@@ -274,7 +326,6 @@ const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
 renderProjects();
 updateCardsPerView();
 applyTheme(initialTheme);
-updateCarousel();
 startAutoSlide();
 
 themeToggle.addEventListener("click", () => {
@@ -304,8 +355,10 @@ filterButtons.forEach((button) => {
     applyProjectFilter(activeFilter);
     currentIndex = 0;
     renderProjects();
-    updateCardsPerView();
-    updateCarousel();
+    if (carouselWindow) {
+      carouselWindow.scrollTo({ left: 0, behavior: "auto" });
+    }
+    updateCarouselButtons();
     startAutoSlide();
 
     filterButtons.forEach((filterButton) => {
@@ -316,18 +369,23 @@ filterButtons.forEach((button) => {
   });
 });
 
-projectsTrack.addEventListener("mouseenter", stopAutoSlide);
-projectsTrack.addEventListener("mouseleave", startAutoSlide);
-projectsTrack.addEventListener("focusin", stopAutoSlide);
-projectsTrack.addEventListener("focusout", startAutoSlide);
+carouselWindow?.addEventListener("mouseenter", stopAutoSlide);
+carouselWindow?.addEventListener("mouseleave", startAutoSlide);
+carouselWindow?.addEventListener("focusin", stopAutoSlide);
+carouselWindow?.addEventListener("focusout", startAutoSlide);
+carouselWindow?.addEventListener("scroll", () => {
+  updateIndexFromScroll();
+  updateCarouselButtons();
+}, { passive: true });
 
 window.addEventListener("resize", () => {
   const oldPerView = cardsPerView;
   updateCardsPerView();
-  if (oldPerView !== cardsPerView && currentIndex > maxIndex()) {
-    currentIndex = maxIndex();
+  syncCardWidth();
+  if (oldPerView !== cardsPerView) {
+    goTo(Math.min(currentIndex, maxIndex()), "auto");
   }
-  updateCarousel();
+  updateCarouselButtons();
 });
 
 yearNode.textContent = String(new Date().getFullYear());

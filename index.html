@@ -68,13 +68,17 @@
             <button class="filter-btn" type="button" data-filter="desktop" aria-pressed="false">Desktop</button>
           </div>
         </div>
-        <div class="carousel-controls">
-          <button id="carousel-prev" class="carousel-btn" aria-label="Previous projects">Prev</button>
-          <button id="carousel-next" class="carousel-btn" aria-label="Next projects">Next</button>
-        </div>
       </div>
-      <div class="carousel-window">
-        <div id="projects-track" class="projects-track"></div>
+      <div class="carousel-shell">
+        <button id="carousel-prev" class="carousel-edge carousel-edge-left" aria-label="Previous projects">
+          <span class="carousel-btn">‹</span>
+        </button>
+        <div class="carousel-window">
+          <div id="projects-track" class="projects-track"></div>
+        </div>
+        <button id="carousel-next" class="carousel-edge carousel-edge-right" aria-label="Next projects">
+          <span class="carousel-btn">›</span>
+        </button>
       </div>
     </section>
 
