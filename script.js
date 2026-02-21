@@ -3,6 +3,8 @@ const themeToggle = document.getElementById("theme-toggle");
 const themeIcon = document.querySelector(".theme-icon");
 const themeLabel = document.querySelector(".theme-label");
 const yearNode = document.getElementById("year");
+const experienceYearsNodes = document.querySelectorAll("[data-professional-years]");
+const aiFocusTextNode = document.getElementById("ai-focus-text");
 const projectsTrack = document.getElementById("projects-track");
 const carouselWindow = document.querySelector(".carousel-window");
 const prevButton = document.getElementById("carousel-prev");
@@ -12,7 +14,36 @@ const resumeChatLog = document.getElementById("resume-chat-log");
 const resumeChatForm = document.getElementById("resume-chat-form");
 const resumeChatInput = document.getElementById("resume-chat-input");
 const promptButtons = document.querySelectorAll(".prompt-btn");
+const chatTyping = document.querySelector(".chat-typing");
+const spotlightTrack = document.getElementById("spotlight-track");
+const spotlightSlides = Array.from(document.querySelectorAll(".spotlight-slide"));
+const spotlightDots = Array.from(document.querySelectorAll(".spotlight-dot"));
+const spotlightPrevButton = document.getElementById("spotlight-prev");
+const spotlightNextButton = document.getElementById("spotlight-next");
+const ghReposNode = document.getElementById("gh-repos");
+const ghStarsNode = document.getElementById("gh-stars");
+const ghFollowersNode = document.getElementById("gh-followers");
+const aiPromptButtons = Array.from(document.querySelectorAll(".ai-prompt-btn"));
+const aiPreviewOutputNode = document.getElementById("ai-preview-output");
+const snakeCanvas = document.getElementById("snake-canvas");
+const snakeScoreNode = document.getElementById("snake-score");
+const snakeDirectionButtons = Array.from(document.querySelectorAll("[data-snake-dir]"));
+const snakeResetButton = document.getElementById("snake-reset");
 const RESUME_AGENT_ENDPOINT = window.RESUME_AGENT_ENDPOINT || "";
+const PROFESSIONAL_START_YEAR = 2018;
+const professionalYears = Math.max(0, new Date().getFullYear() - PROFESSIONAL_START_YEAR);
+const professionalYearsLabel = `${professionalYears}+`;
+const AI_FOCUS_ROTATION = [
+  "MCP workflow orchestration",
+  "LLM-assisted delivery pipelines",
+  "AI code review and validation",
+  "Developer automation tooling"
+];
+const AI_PREVIEW_RESPONSES = {
+  "What stack does Ryan use?": "Core stack: .NET and Node.js for backend, Azure and Docker for cloud delivery, with TypeScript across modern web apps.",
+  "How does Ryan use AI in delivery?": "I use AI for prototype acceleration, code review support, and workflow orchestration, then validate outputs with tests and architecture checks.",
+  "What kind of systems does Ryan build?": "Mostly enterprise-grade backend services, integrations, developer tooling, and scalable web platforms with practical DevOps automation."
+};
 
 const projects = [
   {
@@ -159,11 +190,30 @@ function appendChatMessage(role, message) {
   }
   const article = document.createElement("article");
   article.className = `chat-msg ${role}`;
+  
+  const bubble = document.createElement("div");
+  bubble.className = "chat-msg-bubble";
+
   const content = document.createElement("p");
   content.textContent = message;
-  article.appendChild(content);
+  
+  bubble.appendChild(content);
+  article.appendChild(bubble);
   resumeChatLog.appendChild(article);
   resumeChatLog.scrollTop = resumeChatLog.scrollHeight;
+}
+
+function showTypingIndicator() {
+  if (chatTyping) {
+    chatTyping.style.display = 'flex';
+    resumeChatLog.scrollTop = resumeChatLog.scrollHeight;
+  }
+}
+
+function hideTypingIndicator() {
+  if (chatTyping) {
+    chatTyping.style.display = 'none';
+  }
 }
 
 function getLocalResumeReply(question) {
@@ -182,7 +232,7 @@ function getLocalResumeReply(question) {
     return "Python joke: I had a joke about indentation... but it kept shifting to the right.";
   }
   if (prompt.includes("experience") || prompt.includes("years")) {
-    return "I have 7+ years of software development experience across enterprise systems, backend services, cloud deployments, and web platforms.";
+    return `I have ${professionalYearsLabel} years of software development experience across enterprise systems, backend services, cloud deployments, and web platforms.`;
   }
   if (prompt.includes("cms") || prompt.includes("wix") || prompt.includes("wordpress") || prompt.includes("framer")) {
     return "I have production CMS experience with Wix and can quickly adapt to WordPress, Framer, and other site builders based on project requirements.";
@@ -221,8 +271,225 @@ async function handleResumeChatQuestion(rawQuestion) {
   }
 
   appendChatMessage("user", question);
+  showTypingIndicator();
+
+  // Simulate bot thinking time
+  await new Promise(resolve => setTimeout(resolve, 800));
+
   const reply = await getResumeReply(question);
+  hideTypingIndicator();
   appendChatMessage("bot", reply);
+}
+
+let activeSpotlightIndex = 0;
+let spotlightTimer = null;
+
+function setSpotlightSlide(index) {
+  if (!spotlightSlides.length) {
+    return;
+  }
+  activeSpotlightIndex = (index + spotlightSlides.length) % spotlightSlides.length;
+  spotlightSlides.forEach((slide, idx) => {
+    const isActive = idx === activeSpotlightIndex;
+    slide.classList.toggle("is-active", isActive);
+    slide.setAttribute("aria-hidden", String(!isActive));
+  });
+  spotlightDots.forEach((dot, idx) => {
+    dot.classList.toggle("is-active", idx === activeSpotlightIndex);
+  });
+}
+
+function nextSpotlight() {
+  setSpotlightSlide(activeSpotlightIndex + 1);
+}
+
+function prevSpotlight() {
+  setSpotlightSlide(activeSpotlightIndex - 1);
+}
+
+function startSpotlightAutoRotate() {
+  if (!spotlightSlides.length) {
+    return;
+  }
+  if (spotlightTimer) {
+    clearInterval(spotlightTimer);
+  }
+  spotlightTimer = window.setInterval(nextSpotlight, 6200);
+}
+
+function stopSpotlightAutoRotate() {
+  if (!spotlightTimer) {
+    return;
+  }
+  clearInterval(spotlightTimer);
+  spotlightTimer = null;
+}
+
+async function loadGithubStats() {
+  if (!ghReposNode || !ghStarsNode || !ghFollowersNode) {
+    return;
+  }
+  try {
+    const [userResponse, reposResponse] = await Promise.all([
+      fetch("https://api.github.com/users/ryanvincecastillo"),
+      fetch("https://api.github.com/users/ryanvincecastillo/repos?per_page=100")
+    ]);
+    if (!userResponse.ok) {
+      return;
+    }
+    const userPayload = await userResponse.json();
+    ghReposNode.textContent = String(userPayload.public_repos ?? "--");
+    ghFollowersNode.textContent = String(userPayload.followers ?? "--");
+
+    if (reposResponse.ok) {
+      const reposPayload = await reposResponse.json();
+      const totalStars = reposPayload.reduce(
+        (sum, repo) => sum + (repo?.stargazers_count || 0),
+        0
+      );
+      ghStarsNode.textContent = String(totalStars);
+    }
+  } catch {
+    // Keep fallback placeholders when request fails.
+  }
+}
+
+function updateAiPreview(prompt) {
+  if (!aiPreviewOutputNode) {
+    return;
+  }
+  const reply = AI_PREVIEW_RESPONSES[prompt];
+  if (!reply) {
+    return;
+  }
+  aiPreviewOutputNode.classList.add("signal-text-fade");
+  window.setTimeout(() => {
+    aiPreviewOutputNode.textContent = reply;
+    aiPreviewOutputNode.classList.remove("signal-text-fade");
+  }, 120);
+}
+
+function initSnakeGame() {
+  if (!snakeCanvas || !snakeScoreNode) {
+    return;
+  }
+  const context = snakeCanvas.getContext("2d");
+  if (!context) {
+    return;
+  }
+
+  const cols = 14;
+  const rows = 9;
+  const cell = 16;
+  let snake = [{ x: 6, y: 4 }];
+  let direction = { x: 1, y: 0 };
+  let pendingDirection = { x: 1, y: 0 };
+  let food = { x: 10, y: 5 };
+  let score = 0;
+
+  function randomFood() {
+    const next = {
+      x: Math.floor(Math.random() * cols),
+      y: Math.floor(Math.random() * rows)
+    };
+    if (snake.some((part) => part.x === next.x && part.y === next.y)) {
+      return randomFood();
+    }
+    return next;
+  }
+
+  function resetSnake() {
+    snake = [{ x: 6, y: 4 }];
+    direction = { x: 1, y: 0 };
+    pendingDirection = { x: 1, y: 0 };
+    food = randomFood();
+    score = 0;
+    snakeScoreNode.textContent = "0";
+  }
+
+  function setDirection(x, y) {
+    if (direction.x === -x && direction.y === -y) {
+      return;
+    }
+    pendingDirection = { x, y };
+  }
+
+  function stepSnake() {
+    direction = pendingDirection;
+    const head = snake[0];
+    const nextHead = { x: head.x + direction.x, y: head.y + direction.y };
+
+    if (
+      nextHead.x < 0 ||
+      nextHead.x >= cols ||
+      nextHead.y < 0 ||
+      nextHead.y >= rows ||
+      snake.some((part) => part.x === nextHead.x && part.y === nextHead.y)
+    ) {
+      resetSnake();
+      return;
+    }
+
+    snake.unshift(nextHead);
+    if (nextHead.x === food.x && nextHead.y === food.y) {
+      score += 1;
+      snakeScoreNode.textContent = String(score);
+      food = randomFood();
+    } else {
+      snake.pop();
+    }
+  }
+
+  function drawSnake() {
+    context.clearRect(0, 0, snakeCanvas.width, snakeCanvas.height);
+    context.fillStyle = "#40ff9f";
+    snake.forEach((part) => {
+      context.fillRect(part.x * cell + 1, part.y * cell + 1, cell - 2, cell - 2);
+    });
+    context.fillStyle = "#ffe45f";
+    context.fillRect(food.x * cell + 1, food.y * cell + 1, cell - 2, cell - 2);
+  }
+
+  snakeDirectionButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const dir = button.dataset.snakeDir;
+      if (dir === "up") setDirection(0, -1);
+      if (dir === "down") setDirection(0, 1);
+      if (dir === "left") setDirection(-1, 0);
+      if (dir === "right") setDirection(1, 0);
+    });
+  });
+
+  snakeResetButton?.addEventListener("click", resetSnake);
+  window.addEventListener("keydown", (event) => {
+    const target = event.target;
+    if (target instanceof HTMLElement && /input|textarea/i.test(target.tagName)) {
+      return;
+    }
+    if (event.key === "ArrowUp") {
+      event.preventDefault();
+      setDirection(0, -1);
+    }
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      setDirection(0, 1);
+    }
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      setDirection(-1, 0);
+    }
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      setDirection(1, 0);
+    }
+  });
+
+  resetSnake();
+  drawSnake();
+  window.setInterval(() => {
+    stepSnake();
+    drawSnake();
+  }, 145);
 }
 
 let activeFilter = "all";
@@ -451,11 +718,48 @@ renderProjects();
 updateCardsPerView();
 applyTheme(initialTheme);
 startAutoSlideIfAllowed();
+setSpotlightSlide(0);
+startSpotlightAutoRotate();
+loadGithubStats();
+initSnakeGame();
 
 themeToggle.addEventListener("click", () => {
   const nextTheme = body.classList.contains("dark") ? "light" : "dark";
   applyTheme(nextTheme);
   localStorage.setItem("theme", nextTheme);
+});
+
+spotlightNextButton?.addEventListener("click", () => {
+  nextSpotlight();
+  startSpotlightAutoRotate();
+});
+
+spotlightPrevButton?.addEventListener("click", () => {
+  prevSpotlight();
+  startSpotlightAutoRotate();
+});
+
+spotlightDots.forEach((dot) => {
+  dot.addEventListener("click", () => {
+    const nextIndex = Number(dot.dataset.spotlightIndex);
+    if (Number.isNaN(nextIndex)) {
+      return;
+    }
+    setSpotlightSlide(nextIndex);
+    startSpotlightAutoRotate();
+  });
+});
+
+spotlightTrack?.addEventListener("mouseenter", stopSpotlightAutoRotate);
+spotlightTrack?.addEventListener("mouseleave", startSpotlightAutoRotate);
+spotlightTrack?.addEventListener("focusin", stopSpotlightAutoRotate);
+spotlightTrack?.addEventListener("focusout", startSpotlightAutoRotate);
+
+aiPromptButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const prompt = button.dataset.aiPrompt || "";
+    updateAiPreview(prompt);
+  });
 });
 
 resumeChatForm?.addEventListener("submit", (event) => {
@@ -554,6 +858,21 @@ window.addEventListener("resize", () => {
 });
 
 yearNode.textContent = String(new Date().getFullYear());
+experienceYearsNodes.forEach((node) => {
+  node.textContent = professionalYearsLabel;
+});
+
+if (aiFocusTextNode) {
+  let aiFocusIdx = 0;
+  window.setInterval(() => {
+    aiFocusIdx = (aiFocusIdx + 1) % AI_FOCUS_ROTATION.length;
+    aiFocusTextNode.classList.add("signal-text-fade");
+    window.setTimeout(() => {
+      aiFocusTextNode.textContent = AI_FOCUS_ROTATION[aiFocusIdx];
+      aiFocusTextNode.classList.remove("signal-text-fade");
+    }, 170);
+  }, 2600);
+}
 
 const revealNodes = document.querySelectorAll(".reveal");
 const observer = new IntersectionObserver(

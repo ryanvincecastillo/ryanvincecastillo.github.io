@@ -35,15 +35,32 @@
           <p class="eyebrow">Software Developer</p>
           <h1>Ryan Vince Castillo</h1>
           <p class="subtitle">
-            Results-driven full-stack developer with 7+ years of experience building scalable
-            enterprise and cloud-based software, now focused on AI-assisted engineering,
-            LLM workflows, and MCP server development in Python.
+            Building scalable enterprise and cloud software with <span data-professional-years></span>
+            of professional experience since 2018. Focused on AI-assisted engineering,
+            LLM workflows, and Python MCP server development.
           </p>
+          <div class="hero-impact" aria-label="Career highlights">
+            <article class="impact-item">
+              <strong><span data-professional-years></span></strong>
+              <span>Professional experience</span>
+            </article>
+            <article class="impact-item">
+              <strong>Backend + Cloud</strong>
+              <span>.NET, Node.js, Azure, Docker</span>
+            </article>
+            <article class="impact-item">
+              <strong>AI Delivery</strong>
+              <span>MCP workflows and practical automation</span>
+            </article>
+          </div>
           <div class="chips">
-            <span>Backend</span>
             <span>Cloud & DevOps</span>
             <span>AI & LLM Engineering</span>
             <span>Architecture</span>
+          </div>
+          <div class="ai-signal" aria-live="polite">
+            <span class="signal-dot" aria-hidden="true"></span>
+            <span>AI focus: <strong id="ai-focus-text">MCP workflow orchestration</strong></span>
           </div>
         </div>
         <figure class="hero-photo" aria-label="Profile photo">
@@ -66,29 +83,76 @@
       </div>
     </section>
 
-    <section class="card orb-card reveal">
-      <!-- <h2>Build Philosophy</h2> -->
-      <!-- <p class="philosophy-powered">Powered by my LLM workflow and MCP integrations.</p> -->
-      <div class="resume-chat" aria-label="Talk to my resume chat widget">
-        <div class="resume-chat-log" id="resume-chat-log" role="log" aria-live="polite">
-          <article class="chat-msg bot">
-            <p>Hi, I’m Ryan’s resume agent. Ask about stack, AI workflow, or experience.</p>
-          </article>
+    <section class="card spotlight-card reveal" aria-label="Creative spotlight carousel">
+      <div class="spotlight-head">
+        <h2>Creative Spotlight</h2>
+        <div class="spotlight-nav" aria-label="Spotlight controls">
+          <button id="spotlight-prev" class="spotlight-btn" type="button" aria-label="Previous spotlight">‹</button>
+          <button id="spotlight-next" class="spotlight-btn" type="button" aria-label="Next spotlight">›</button>
         </div>
-        <div class="resume-chat-prompts" aria-label="Quick questions">
-          <button type="button" class="prompt-btn" data-prompt="What's your stack?">What's your stack?</button>
-          <button type="button" class="prompt-btn" data-prompt="How do you use AI in development?">How do you use AI in development?</button>
-          <button type="button" class="prompt-btn" data-prompt="Tell me a joke about Python.">Tell me a joke about Python.</button>
-        </div>
-        <form id="resume-chat-form" class="resume-chat-form">
-          <label class="sr-only" for="resume-chat-input">Ask a question</label>
-          <input id="resume-chat-input" type="text" maxlength="180" placeholder="Ask: What's your stack?" autocomplete="off">
-          <button type="submit" class="button">Send</button>
-        </form>
       </div>
-      <div class="orbs" aria-hidden="true">
-        <span class="orb orb-a"></span>
-        <span class="orb orb-b"></span>
+
+      <div id="spotlight-track" class="spotlight-track">
+        <article class="spotlight-slide is-active" data-spotlight-slide="github">
+          <div class="contribution-head">
+            <h3>GitHub Activity</h3>
+            <span class="live-pill"><span aria-hidden="true"></span>Live</span>
+          </div>
+          <p class="contribution-note">Open-source work, experiments, and automation projects.</p>
+          <div class="gh-stats">
+            <div><span id="gh-repos">--</span><small>Repos</small></div>
+            <div><span id="gh-stars">--</span><small>Stars</small></div>
+            <div><span id="gh-followers">--</span><small>Followers</small></div>
+          </div>
+          <a
+            class="contribution-chart"
+            href="https://github.com/ryanvincecastillo"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View Ryan Vince Castillo GitHub profile"
+          >
+            <img
+              src="https://ghchart.rshah.org/ryanvincecastillo"
+              alt="GitHub contribution chart for ryanvincecastillo"
+              loading="lazy"
+            >
+          </a>
+        </article>
+
+        <article class="spotlight-slide" data-spotlight-slide="ai">
+          <h3>AI Playground</h3>
+          <p class="contribution-note">Try a quick prompt preview. Full floating chat is coming next.</p>
+          <div class="ai-prompt-grid" role="group" aria-label="AI prompt preview">
+            <button class="ai-prompt-btn" type="button" data-ai-prompt="What stack does Ryan use?">Tech stack</button>
+            <button class="ai-prompt-btn" type="button" data-ai-prompt="How does Ryan use AI in delivery?">AI workflow</button>
+            <button class="ai-prompt-btn" type="button" data-ai-prompt="What kind of systems does Ryan build?">System design</button>
+          </div>
+          <div class="ai-preview">
+            <p class="ai-preview-label">Agent output</p>
+            <p id="ai-preview-output">I build scalable backend systems and pair AI assistants with practical engineering workflows.</p>
+          </div>
+        </article>
+
+        <article class="spotlight-slide" data-spotlight-slide="game">
+          <div class="retro-head">
+            <h3>Mini Snake</h3>
+            <span>Score: <strong id="snake-score">0</strong></span>
+          </div>
+          <canvas id="snake-canvas" class="snake-canvas" width="224" height="144" aria-label="Mini snake game"></canvas>
+          <div class="snake-controls" role="group" aria-label="Snake controls">
+            <button type="button" class="snake-btn" data-snake-dir="up">↑</button>
+            <button type="button" class="snake-btn" data-snake-dir="left">←</button>
+            <button type="button" class="snake-btn" data-snake-dir="down">↓</button>
+            <button type="button" class="snake-btn" data-snake-dir="right">→</button>
+            <button type="button" id="snake-reset" class="snake-btn snake-reset">Reset</button>
+          </div>
+        </article>
+      </div>
+
+      <div class="spotlight-dots" aria-label="Spotlight slide indicators">
+        <button type="button" class="spotlight-dot is-active" data-spotlight-index="0" aria-label="Show GitHub spotlight"></button>
+        <button type="button" class="spotlight-dot" data-spotlight-index="1" aria-label="Show AI spotlight"></button>
+        <button type="button" class="spotlight-dot" data-spotlight-index="2" aria-label="Show game spotlight"></button>
       </div>
     </section>
 
@@ -135,7 +199,7 @@
         </div>
         <div>
           <h3>CMS & Site Builders</h3>
-          <p>Wix (Production Experience), WordPress, Framer, Shopify, Webflow</p>
+          <p>Wix, WordPress, Framer, Shopify, Webflow</p>
         </div>
         <div>
           <h3>Mobile</h3>
@@ -192,10 +256,10 @@
       <h2>Contact</h2>
       <ul>
         <li><strong>Email:</strong> <a href="mailto:ryanvincecastillo@gmail.com">ryanvincecastillo@gmail.com</a></li>
-        <li><strong>Phone:</strong> +63951-401-4096</li>
-        <li><strong>Location:</strong> Davao del Norte, Philippines</li>
-        <li><strong>GitHub:</strong> <a href="https://ryanvincecastillo.github.io" target="_blank" rel="noopener noreferrer">ryanvincecastillo.github.io</a></li>
-        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ryan-vince-castillo-67690b20a/" target="_blank" rel="noopener noreferrer">ryan-vince-castillo</a></li>
+        <li><strong>Phone:</strong> <a href="tel:+639514014096">+63-951-401-4096</a></li>
+        <li><strong>Location:</strong> <a href="https://www.google.com/maps?q=Davao+del+Norte,+Philippines" target="_blank" rel="noopener noreferrer">Davao del Norte, Philippines</a></li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/ryanvincecastillo" target="_blank" rel="noopener noreferrer">https://github.com/ryanvincecastillo</a></li>
+        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ryan-vince-castillo-67690b20a/" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/in/ryan-vince-castillo-67690b20a/</a></li>
       </ul>
     </section>
 
