@@ -230,6 +230,14 @@ body.dark .theme-thumb {
   margin-bottom: 0.85rem;
 }
 
+.hero-heading-secondary {
+  margin: -0.2rem 0 0.8rem;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  color: var(--muted);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
 .eyebrow {
   letter-spacing: 0.08em;
   font-size: 0.78rem;
@@ -1010,6 +1018,38 @@ body.dark .theme-thumb {
   grid-column: span 12;
 }
 
+.seo-section {
+  grid-column: span 12;
+}
+
+.seo-section > p + p {
+  margin-top: 0.65rem;
+}
+
+.service-list,
+.case-study-list {
+  margin-top: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.service-list article,
+.case-study-list article {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 0.8rem;
+  background: color-mix(in srgb, var(--card), transparent 14%);
+}
+
+.case-study-list article p {
+  margin-top: 0.35rem;
+}
+
+.case-study-list strong {
+  color: var(--text);
+}
+
 .projects-head {
   display: flex;
   justify-content: space-between;
@@ -1484,6 +1524,11 @@ body.dark .theme-thumb {
   }
 
   .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-list,
+  .case-study-list {
     grid-template-columns: 1fr;
   }
 

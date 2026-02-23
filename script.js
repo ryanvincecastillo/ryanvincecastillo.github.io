@@ -314,7 +314,7 @@ function startSpotlightAutoRotate() {
   if (spotlightTimer) {
     clearInterval(spotlightTimer);
   }
-  spotlightTimer = window.setInterval(nextSpotlight, 6200);
+  spotlightTimer = window.setInterval(nextSpotlight, 16200);
 }
 
 function stopSpotlightAutoRotate() {
