@@ -7,15 +7,15 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://ryanvincecastillo.com/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Ryan Vince Castillo | Software Developer in the Philippines | Remote Developer for Hire">
+  <meta property="og:title" content="Ryan Vince Castillo | Software Developer in the Philippines">
   <meta property="og:description" content="Philippines-based remote software developer helping global clients build web apps, backend systems, and practical AI workflows.">
   <meta property="og:url" content="https://ryanvincecastillo.com/">
   <meta property="og:image" content="https://ryanvincecastillo.com/files/profile-photo.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Ryan Vince Castillo | Software Developer in the Philippines | Remote Developer for Hire">
+  <meta name="twitter:title" content="Ryan Vince Castillo | Software Developer in the Philippines">
   <meta name="twitter:description" content="Remote software developer from the Philippines building modern web apps, backend systems, and AI-assisted engineering workflows.">
   <meta name="twitter:image" content="https://ryanvincecastillo.com/files/profile-photo.jpg">
-  <title>Ryan Vince Castillo | Software Developer in the Philippines | Remote Developer for Hire</title>
+  <title>Ryan Vince Castillo | Software Developer in the Philippines</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
@@ -37,386 +37,158 @@
         "https://github.com/ryanvincecastillo",
         "https://www.linkedin.com/in/ryan-vince-castillo-67690b20a/"
       ],
-      "knowsAbout": [
-        ".NET",
-        "Node.js",
-        "TypeScript",
-        "Azure",
-        "Docker",
-        "Microservices",
-        "AI-assisted software development",
-        "MCP servers"
-      ]
+      "knowsAbout": [".NET", "Node.js", "TypeScript", "Azure", "Docker", "Microservices", "AI-assisted software development", "MCP servers"]
     }
   </script>
 </head>
-<body>
+<body class="dark" data-page="home">
+  <div class="cursor-spotlight" aria-hidden="true"></div>
   <div class="bg-ambient" aria-hidden="true"></div>
+
   <header class="topbar">
-    <a class="brand" href="#home">RVC</a>
+    <a class="brand" href="/">rvc</a>
     <nav class="nav">
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="full-stack-developer-philippines/">Full Stack</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
-      <a href="files/cv-2025.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+      <a href="about/">about</a>
+      <a href="projects/">projects</a>
+      <a href="contact/">contact</a>
+      <a href="full-stack-developer-philippines/">hire me</a>
     </nav>
-    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" aria-pressed="false">
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" aria-pressed="true">
       <span class="theme-icon" aria-hidden="true"></span>
-      <span class="theme-label">Light</span>
+      <span class="theme-label">Dark</span>
       <span class="theme-thumb" aria-hidden="true"></span>
     </button>
   </header>
 
-  <main id="home" class="layout">
-    <section class="card hero reveal">
-      <div class="hero-content">
-        <div class="hero-main">
-          <p class="eyebrow">Philippines-Based Remote Software Developer</p>
-          <h1>Ryan Vince Castillo - Software Developer in the Philippines</h1>
-          <h2 class="hero-heading-secondary">Helping Businesses Worldwide Build Modern Web Applications</h2>
-          <p class="subtitle">
-            Building scalable enterprise and cloud software with <span data-professional-years></span>
-            of professional experience since 2018. Focused on AI-assisted engineering,
-            LLM workflows, and Python MCP server development.
-          </p>
-          <div class="hero-impact" aria-label="Career highlights">
-            <article class="impact-item">
-              <strong><span data-professional-years></span></strong>
-              <span>Professional experience</span>
-            </article>
-            <article class="impact-item">
-              <strong>Backend + Cloud</strong>
-              <span>.NET, Node.js, Azure, Docker</span>
-            </article>
-            <article class="impact-item">
-              <strong>AI Delivery</strong>
-              <span>MCP workflows and practical automation</span>
-            </article>
-          </div>
-          <div class="chips">
-            <span>Cloud & DevOps</span>
-            <span>AI & LLM Engineering</span>
-            <span>Architecture</span>
-          </div>
-          <div class="ai-signal" aria-live="polite">
-            <span class="signal-dot" aria-hidden="true"></span>
-            <span>AI focus: <strong id="ai-focus-text">MCP workflow orchestration</strong></span>
+  <main>
+    <!-- ── Full-width hero ── -->
+    <section class="hero-full reveal">
+      <div class="hero-full-inner">
+        <div class="hero-full-text">
+          <p class="eyebrow">// software developer &middot; philippines</p>
+          <h1 class="hero-full-name">Ryan Vince<br>Castillo</h1>
+          <p class="hero-full-tagline">I build scalable web apps, backend systems, and AI-powered workflows for teams worldwide.</p>
+          <div class="hero-full-cta">
+            <a href="projects/" class="button">View Projects</a>
+            <a href="files/cv-2025.pdf" target="_blank" rel="noopener noreferrer" class="button button-ghost">Download CV</a>
           </div>
         </div>
-        <figure class="hero-photo" aria-label="Profile photo">
+        <figure class="hero-full-photo" aria-label="Profile photo">
           <img
             src="files/profile-photo.jpg"
-            alt="Ryan Vince Castillo portrait"
-            loading="lazy"
+            alt="Ryan Vince Castillo"
+            loading="eager"
             onerror="this.parentElement.classList.add('is-missing')"
             onload="this.parentElement.classList.remove('is-missing')"
           >
           <figcaption class="hero-photo-fallback" aria-hidden="true">
             <strong>RVC</strong>
-            <span>Add photo</span>
           </figcaption>
         </figure>
       </div>
-      <div class="hero-cta">
-        <a href="#projects" class="button">Explore Projects</a>
-        <a href="files/cv-2025.pdf" target="_blank" rel="noopener noreferrer" class="button button-ghost">Download CV</a>
-      </div>
     </section>
 
-    <section class="card spotlight-card reveal" aria-label="Creative spotlight carousel">
-      <div class="spotlight-head">
-        <h2>Creative Spotlight</h2>
-        <div class="spotlight-nav" aria-label="Spotlight controls">
-          <button id="spotlight-prev" class="spotlight-btn" type="button" aria-label="Previous spotlight">‹</button>
-          <button id="spotlight-next" class="spotlight-btn" type="button" aria-label="Next spotlight">›</button>
-        </div>
+    <!-- ── Content column ── -->
+    <div class="landing">
+      <div class="landing-stats reveal">
+        <article class="stat-card">
+          <strong><span data-professional-years></span></strong>
+          <span>Years</span>
+        </article>
+        <article class="stat-card">
+          <strong>2</strong>
+          <span>Projects</span>
+        </article>
+        <article class="stat-card">
+          <strong>AI</strong>
+          <span>Workflows</span>
+        </article>
+        <article class="stat-card">
+          <strong>Remote</strong>
+          <span>Global</span>
+        </article>
       </div>
 
-      <div id="spotlight-track" class="spotlight-track">
-        <article class="spotlight-slide is-active" data-spotlight-slide="github">
-          <div class="contribution-head">
-            <h3>GitHub Activity</h3>
-            <span class="live-pill"><span aria-hidden="true"></span>Live</span>
+      <section class="landing-stack reveal">
+        <h2>// tech stack</h2>
+        <div class="stack-pills">
+          <span>.NET</span>
+          <span>Node.js</span>
+          <span>TypeScript</span>
+          <span>React</span>
+          <span>Next.js</span>
+          <span>Go</span>
+          <span>Azure</span>
+          <span>Docker</span>
+          <span>PostgreSQL</span>
+          <span>Redis</span>
+          <span>MCP Servers</span>
+          <span>Claude Code</span>
+        </div>
+      </section>
+
+      <section class="landing-inaan reveal">
+        <div class="inaan-callout">
+          <div class="inaan-callout-text">
+            <p class="eyebrow">// shipped product</p>
+            <h2>InaanApp</h2>
+            <p>A relationship memory app for Filipino families — track ninong, ninang, and inaanak connections with birthday reminders and Pamasko mode.</p>
+            <div class="inaan-tech">
+              <span>Flutter</span>
+              <span>Dart</span>
+              <span>Supabase</span>
+              <span>Vercel</span>
+            </div>
+            <div class="inaan-cta">
+              <a href="https://inaanapp.vercel.app/" target="_blank" rel="noopener noreferrer" class="button">Visit Live Site</a>
+              <a href="projects/" class="button button-ghost">Case Study &rarr;</a>
+            </div>
           </div>
-          <p class="contribution-note">Open-source work, experiments, and automation projects.</p>
-          <div class="gh-stats">
-            <div><span id="gh-repos">--</span><small>Repos</small></div>
-            <div><span id="gh-stars">--</span><small>Stars</small></div>
-            <div><span id="gh-followers">--</span><small>Followers</small></div>
-          </div>
-          <a
-            class="contribution-chart"
-            href="https://github.com/ryanvincecastillo"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="View Ryan Vince Castillo GitHub profile"
+          <figure class="inaan-callout-shot">
+            <img src="images/inaanapp-homepage.png" alt="InaanApp homepage" loading="lazy">
+          </figure>
+        </div>
+      </section>
+
+      <section class="landing-github reveal">
+        <div class="landing-github-head">
+          <h2>// open source</h2>
+          <span class="live-pill"><span aria-hidden="true"></span>Live</span>
+        </div>
+        <div class="gh-stats">
+          <div><span id="gh-repos">--</span><small>Repos</small></div>
+          <div><span id="gh-stars">--</span><small>Stars</small></div>
+          <div><span id="gh-followers">--</span><small>Followers</small></div>
+        </div>
+        <a
+          class="contribution-chart"
+          href="https://github.com/ryanvincecastillo"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="View GitHub profile"
+        >
+          <img
+            src="https://ghchart.rshah.org/ryanvincecastillo"
+            alt="GitHub contribution chart"
+            loading="lazy"
           >
-            <img
-              src="https://ghchart.rshah.org/ryanvincecastillo"
-              alt="GitHub contribution chart for ryanvincecastillo"
-              loading="lazy"
-            >
-          </a>
-        </article>
+        </a>
+      </section>
 
-        <article class="spotlight-slide" data-spotlight-slide="ai">
-          <h3>AI Playground</h3>
-          <p class="contribution-note">Try a quick prompt preview. Full floating chat is coming next.</p>
-          <div class="ai-prompt-grid" role="group" aria-label="AI prompt preview">
-            <button class="ai-prompt-btn" type="button" data-ai-prompt="What stack does Ryan use?">Tech stack</button>
-            <button class="ai-prompt-btn" type="button" data-ai-prompt="How does Ryan use AI in delivery?">AI workflow</button>
-            <button class="ai-prompt-btn" type="button" data-ai-prompt="What kind of systems does Ryan build?">System design</button>
-          </div>
-          <div class="ai-preview">
-            <p class="ai-preview-label">Agent output</p>
-            <p id="ai-preview-output">I build scalable backend systems and pair AI assistants with practical engineering workflows.</p>
-          </div>
-        </article>
-
-        <article class="spotlight-slide" data-spotlight-slide="game">
-          <div class="retro-head">
-            <h3>Mini Snake</h3>
-            <span>Score: <strong id="snake-score">0</strong></span>
-          </div>
-          <canvas id="snake-canvas" class="snake-canvas" width="224" height="144" aria-label="Mini snake game"></canvas>
-          <div class="snake-controls" role="group" aria-label="Snake controls">
-            <button type="button" class="snake-btn" data-snake-dir="up">↑</button>
-            <button type="button" class="snake-btn" data-snake-dir="left">←</button>
-            <button type="button" class="snake-btn" data-snake-dir="down">↓</button>
-            <button type="button" class="snake-btn" data-snake-dir="right">→</button>
-            <button type="button" id="snake-reset" class="snake-btn snake-reset">Reset</button>
-          </div>
-        </article>
-      </div>
-
-      <div class="spotlight-dots" aria-label="Spotlight slide indicators">
-        <button type="button" class="spotlight-dot is-active" data-spotlight-index="0" aria-label="Show GitHub spotlight"></button>
-        <button type="button" class="spotlight-dot" data-spotlight-index="1" aria-label="Show AI spotlight"></button>
-        <button type="button" class="spotlight-dot" data-spotlight-index="2" aria-label="Show game spotlight"></button>
-      </div>
-    </section>
-
-    <section id="about" class="card seo-section reveal">
-      <h2>About Ryan Vince Castillo</h2>
-      <p>
-        I am a software developer in the Philippines based in Davao City, working with local and international
-        clients on web applications, backend systems, and cloud-enabled software. Since 2018, I have delivered
-        solutions across enterprise operations, logistics, internal business tools, and client-facing web platforms.
-        My work combines practical engineering execution with clear communication for remote teams.
-      </p>
-      <p>
-        My core stack includes .NET, ASP.NET, Node.js, NestJS, TypeScript, SQL Server, PostgreSQL, Azure, Docker,
-        and modern frontend frameworks such as Next.js and Angular. I also build AI-assisted workflows and Python MCP
-        servers to improve developer productivity, automation, and internal tooling. This allows me to help teams ship
-        faster without sacrificing reliability, maintainability, or architecture quality.
-      </p>
-      <p>
-        As a remote developer from the Philippines, I support businesses that need a dependable freelance developer or
-        long-term engineering partner for product development, system modernization, integrations, and performance
-        improvements. I am comfortable working across time zones, collaborating asynchronously, and translating business
-        requirements into production-ready software. If you need a Davao-based developer who can contribute to global
-        projects, I can help from planning through delivery.
-      </p>
-    </section>
-
-    <section id="services" class="card seo-section reveal">
-      <h2>Services I Offer</h2>
-      <div class="service-list">
-        <article>
-          <h3>Web Application Development</h3>
-          <p>
-            End-to-end web application development for internal tools, portals, and SaaS products. I build scalable
-            systems with clear architecture, secure authentication, and maintainable codebases for growing teams.
-          </p>
-        </article>
-        <article>
-          <h3>Frontend Development (React / Next.js)</h3>
-          <p>
-            Responsive frontend interfaces focused on usability, performance, and clean component structure. I can
-            build new React or Next.js experiences or improve existing UIs for faster delivery and better UX.
-          </p>
-        </article>
-        <article>
-          <h3>Backend API Development</h3>
-          <p>
-            API and service development using .NET, Node.js, and SQL/NoSQL databases. I design backend systems for
-            integrations, business workflows, and data-heavy operations with reliability and observability in mind.
-          </p>
-        </article>
-        <article>
-          <h3>Website Performance Optimization</h3>
-          <p>
-            Performance and technical improvements for websites and web apps, including frontend optimization, asset
-            loading strategy, and code cleanup that supports better user experience and SEO outcomes.
-          </p>
-        </article>
-        <article>
-          <h3>Technical Consulting & AI Workflow Integration</h3>
-          <p>
-            Engineering consulting for architecture planning, delivery processes, and AI-assisted development
-            workflows. I help teams adopt practical automation and MCP-based tooling to improve productivity safely.
-          </p>
-        </article>
-      </div>
-      <p>
-        Looking for a dedicated hiring page? Visit
-        <a href="full-stack-developer-philippines/">Full Stack Developer in the Philippines</a>.
-      </p>
-    </section>
-
-    <section id="case-studies" class="card seo-section reveal">
-      <h2>Project Case Studies</h2>
-      <div class="case-study-list">
-        <article>
-          <h3>Enterprise Applications and Backend Services</h3>
-          <p><strong>Problem:</strong> Teams needed secure and scalable internal systems for daily operations.</p>
-          <p><strong>Solution:</strong> Built and maintained enterprise applications with .NET and Node.js services, authentication, and cloud deployment workflows.</p>
-          <p><strong>Tech Used:</strong> .NET, Node.js, SQL Server, Azure, Docker</p>
-          <p><strong>Results:</strong> Improved reliability, faster feature delivery, and better support for business-critical workflows.</p>
-        </article>
-        <article>
-          <h3>Logistics and Tracking Tools</h3>
-          <p><strong>Problem:</strong> Manual tracking and fragmented tools slowed logistics monitoring and reporting.</p>
-          <p><strong>Solution:</strong> Developed tracking applications and dashboards for monitoring container and freight operations.</p>
-          <p><strong>Tech Used:</strong> C#, .NET, SQL Server, desktop and web tooling</p>
-          <p><strong>Results:</strong> Better visibility into operations and improved efficiency for internal teams.</p>
-        </article>
-        <article>
-          <h3>Client Websites and Conversion-Focused Builds</h3>
-          <p><strong>Problem:</strong> Small businesses needed fast, professional websites that were easy to maintain.</p>
-          <p><strong>Solution:</strong> Delivered business websites using Wix and modern web platforms with SEO-aware structure and lead capture flows.</p>
-          <p><strong>Tech Used:</strong> Wix, CMS tools, forms, analytics, on-page SEO</p>
-          <p><strong>Results:</strong> Faster launch timelines and stronger online presence for service-based businesses.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="projects" class="card projects-showcase reveal">
-      <div class="projects-head">
-        <div>
-          <h2>Featured Work</h2>
-          <div class="project-filters" role="group" aria-label="Filter projects by type and platform">
-            <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">All</button>
-            <button class="filter-btn" type="button" data-filter="website" aria-pressed="false">Website</button>
-            <button class="filter-btn" type="button" data-filter="webapp" aria-pressed="false">Web App</button>
-            <button class="filter-btn" type="button" data-filter="mobile" aria-pressed="false">Mobile</button>
-            <button class="filter-btn" type="button" data-filter="desktop" aria-pressed="false">Desktop</button>
-          </div>
+      <section id="contact" class="landing-contact reveal">
+        <h2>Let's work together.</h2>
+        <p>Available for remote projects, freelance, and long-term partnerships.</p>
+        <div class="contact-links">
+          <a href="mailto:ryanvincecastillo@gmail.com" class="button">Email Me</a>
+          <a href="https://www.linkedin.com/in/ryan-vince-castillo-67690b20a/" target="_blank" rel="noopener noreferrer" class="button button-ghost">LinkedIn</a>
+          <a href="https://github.com/ryanvincecastillo" target="_blank" rel="noopener noreferrer" class="button button-ghost">GitHub</a>
         </div>
-      </div>
-      <div class="carousel-shell">
-        <button id="carousel-prev" class="carousel-edge carousel-edge-left" aria-label="Previous projects">
-          <span class="carousel-btn">‹</span>
-        </button>
-        <div class="carousel-window">
-          <div id="projects-track" class="projects-track"></div>
-        </div>
-        <button id="carousel-next" class="carousel-edge carousel-edge-right" aria-label="Next projects">
-          <span class="carousel-btn">›</span>
-        </button>
-      </div>
-    </section>
-
-    <section id="skills" class="card skills reveal">
-      <h2>Skills</h2>
-      <div class="skills-grid">
-        <div>
-          <h3>Languages</h3>
-          <p>C#, Visual Basic, TypeScript, JavaScript, Java, Go, Dart</p>
-        </div>
-        <div>
-          <h3>Backend</h3>
-          <p>.NET, ASP.NET, Node.js, NestJS, Go (Gin, gRPC), REST APIs, Microservices</p>
-        </div>
-        <div>
-          <h3>Frontend</h3>
-          <p>HTML5, CSS3, AngularJS, Angular, Next.js, Microfrontends</p>
-        </div>
-        <div>
-          <h3>CMS & Site Builders</h3>
-          <p>Wix, WordPress, Framer, Shopify, Webflow</p>
-        </div>
-        <div>
-          <h3>Mobile</h3>
-          <p>React Native, Flutter, .NET MAUI</p>
-        </div>
-        <div>
-          <h3>Databases</h3>
-          <p>MSSQL, PostgreSQL, MongoDB, Redis</p>
-        </div>
-        <div>
-          <h3>BaaS & Integrations</h3>
-          <p>Supabase, Firebase, SendGrid</p>
-        </div>
-        <div>
-          <h3>Cloud & DevOps</h3>
-          <p>Azure Storage, Docker, Kubernetes, CI/CD Pipelines</p>
-        </div>
-        <div>
-          <h3>AI & LLM</h3>
-          <p>Claude Code, Codex, Cursor, ChatGPT, LM Studio, Ollama, Local LLM Workflows, MCP Servers (Python)</p>
-        </div>
-        <div>
-          <h3>Architecture</h3>
-          <p>Clean Architecture, DDD, Event-Driven Architecture, CQRS</p>
-        </div>
-        <div>
-          <h3>Developer Tools</h3>
-          <p>GitHub, GitLab, Bitbucket, VS Code, Postman, Git</p>
-        </div>
-        <div>
-          <h3>UI Libraries & Styling</h3>
-          <p>Tailwind CSS, Bootstrap, Material UI</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience" class="card experience reveal">
-      <h2>Professional Experience</h2>
-      <article>
-        <h3>Jairosoft Inc.</h3>
-        <p class="meta">Software Developer / Line Manager · April 2021 - Present</p>
-        <p>Leading development of enterprise applications focused on backend services (.NET, Node.js), cloud solutions (Azure, Docker), secure authentication, and SQL Server optimization.</p>
-      </article>
-      <article>
-        <h3>Marsman Drysdale Agribusiness Group</h3>
-        <p class="meta">Computer Programmer / IT · Aug 2020 - Feb 2021</p>
-        <p>Built a desktop application for container van monitoring and freight logistics to improve tracking efficiency and IT operations.</p>
-      </article>
-      <article>
-        <h3>Freelance Web Developer</h3>
-        <p class="meta">Aug 2019 - Aug 2020</p>
-        <p>Delivered client websites using Wix, WordPress, and other web platforms.</p>
-      </article>
-      <article>
-        <h3>Southwood Mindanao Corporation</h3>
-        <p class="meta">Computer Programmer · July 2018 - Aug 2019</p>
-        <p>Developed C# inventory and purchase order systems, upgraded POS payments, and migrated legacy accounting and payroll apps from VB6 to C# .NET.</p>
-      </article>
-    </section>
-
-    <section id="contact" class="card profile reveal">
-      <h2>Contact</h2>
-      <ul>
-        <li><strong>Email:</strong> <a href="mailto:ryanvincecastillo@gmail.com">ryanvincecastillo@gmail.com</a></li>
-        <li><strong>Phone:</strong> <a href="tel:+639514014096">+63-951-401-4096</a></li>
-        <li><strong>Location:</strong> <a href="https://www.google.com/maps?q=Davao+City,+Philippines" target="_blank" rel="noopener noreferrer">Davao City, Philippines</a></li>
-        <li><strong>GitHub:</strong> <a href="https://github.com/ryanvincecastillo" target="_blank" rel="noopener noreferrer">https://github.com/ryanvincecastillo</a></li>
-        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ryan-vince-castillo-67690b20a/" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/in/ryan-vince-castillo-67690b20a/</a></li>
-      </ul>
-    </section>
-
-    <section class="card education reveal">
-      <h2>Education</h2>
-      <h3>University of Southeastern Philippines</h3>
-      <p>Bachelor of Science in Information Technology · 2014 - 2018</p>
-    </section>
+      </section>
+    </div>
   </main>
 
   <footer class="footer">
-    <p>© <span id="year"></span> Ryan Vince Castillo</p>
+    <p>&copy; <span id="year"></span> Ryan Vince Castillo</p>
   </footer>
 
   <script src="script.js"></script>

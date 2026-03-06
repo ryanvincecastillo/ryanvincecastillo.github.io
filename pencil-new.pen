@@ -1,0 +1,736 @@
+{
+  "version": "2.8",
+  "children": [
+    {
+      "type": "frame",
+      "id": "f56sZ",
+      "x": 6500,
+      "y": 0,
+      "name": "Portfolio V5 Minimal Modern Prompt",
+      "width": 1440,
+      "fill": "#F7F8FB",
+      "layout": "vertical",
+      "gap": 18,
+      "padding": [
+        20,
+        24,
+        40,
+        24
+      ],
+      "children": [
+        {
+          "type": "frame",
+          "id": "kXR6B",
+          "name": "Sticky Nav",
+          "width": "fill_container",
+          "fill": "#F7F8FBCC",
+          "cornerRadius": 16,
+          "padding": [
+            10,
+            14
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "DTwIW",
+              "name": "nav5Logo",
+              "fill": "#0F172A",
+              "content": "RVC",
+              "fontFamily": "Inter",
+              "fontSize": 16,
+              "fontWeight": "bold"
+            },
+            {
+              "type": "text",
+              "id": "fmIfi",
+              "name": "nav5Links",
+              "fill": "#475569",
+              "content": "Projects   About   Contact   Download CV",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "NsGzq",
+          "name": "Hero",
+          "width": "fill_container",
+          "gap": 16,
+          "children": [
+            {
+              "type": "frame",
+              "id": "dpYG4",
+              "name": "hero5L",
+              "width": 900,
+              "fill": "#FFFFFF",
+              "cornerRadius": 24,
+              "layout": "vertical",
+              "gap": 14,
+              "padding": 28,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "RUVm4",
+                  "name": "hero5Eye",
+                  "fill": "#64748B",
+                  "content": "Remote Software Developer · Backend & AI Workflows · Philippines",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "OBdDf",
+                  "name": "hero5Title",
+                  "fill": "#0F172A",
+                  "content": "Reliable backend systems and AI-powered workflows for modern web apps.",
+                  "fontFamily": "Inter",
+                  "fontSize": 34,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "text",
+                  "id": "qdl9Q",
+                  "name": "hero5Sub",
+                  "fill": "#334155",
+                  "content": ".NET · Node.js · Azure · Docker · Python MCP",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "vWHOc",
+                  "name": "hero5Ctas",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "ne0tX",
+                      "name": "hero5BtnA",
+                      "fill": "#2563EB",
+                      "cornerRadius": 999,
+                      "padding": [
+                        12,
+                        16
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "WfAKP",
+                          "name": "hero5BtnAT",
+                          "fill": "#FFFFFF",
+                          "content": "View Selected Work",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "semibold"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ouon4",
+                      "name": "hero5BtnB",
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 999,
+                      "padding": [
+                        12,
+                        16
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "S2xwE",
+                          "name": "hero5BtnBT",
+                          "fill": "#0F172A",
+                          "content": "Contact Me",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "semibold"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "z6AuL",
+              "name": "hero5R",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 24,
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 18,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "onUrW",
+                  "name": "hero5Visual",
+                  "width": "fill_container",
+                  "height": 300,
+                  "fill": "#EEF3FF",
+                  "cornerRadius": 20
+                },
+                {
+                  "type": "text",
+                  "id": "IF6sI",
+                  "name": "hero5Note",
+                  "fill": "#64748B",
+                  "content": "Minimal visual accent: soft radial-glow placeholder / portrait area",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "LcZPK",
+          "name": "Credibility Strip",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "cornerRadius": 16,
+          "gap": 14,
+          "padding": [
+            12,
+            14
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "dAy2b",
+              "name": "cred5a",
+              "fill": "#64748B",
+              "content": "7+ Years Experience",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "PfLlE",
+              "name": "cred5b",
+              "fill": "#64748B",
+              "content": "Backend & Cloud Specialist",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "0bev2",
+              "name": "cred5c",
+              "fill": "#64748B",
+              "content": "Enterprise Applications",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "hKFGs",
+              "name": "cred5d",
+              "fill": "#64748B",
+              "content": "Remote-Ready",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "lQdmW",
+          "name": "Featured Work",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "cornerRadius": 24,
+          "layout": "vertical",
+          "gap": 14,
+          "padding": 20,
+          "children": [
+            {
+              "type": "frame",
+              "id": "a2OpD",
+              "name": "featHead",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "V8cNh",
+                  "name": "featTitle",
+                  "fill": "#0F172A",
+                  "content": "Featured Work",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "bold"
+                },
+                {
+                  "type": "text",
+                  "id": "hN0bs",
+                  "name": "featSub",
+                  "fill": "#64748B",
+                  "content": "Selected case studies with clean outcomes and practical engineering focus",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ws0JV",
+              "name": "featGrid",
+              "width": "fill_container",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "wMqFk",
+                  "name": "cardA",
+                  "width": 446,
+                  "fill": "#FBFCFF",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "FEdfE",
+                      "name": "cardAK",
+                      "fill": "#0F172A",
+                      "content": "Workflow Modernization",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "bold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "WlrT7",
+                      "name": "cardAP",
+                      "fill": "#475569",
+                      "content": "Refactored backend services and release process for easier maintenance.",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "FEL5u",
+                      "name": "cardAS",
+                      "fill": "#64748B",
+                      "content": ".NET · SQL Server · Docker · Azure DevOps",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "NZdfD",
+                      "name": "cardAO",
+                      "fill": "#334155",
+                      "content": "Outcome: faster delivery with fewer release issues",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "joQin",
+                      "name": "cardAL",
+                      "fill": "#2563EB",
+                      "content": "Read Case Study →",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "semibold"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "XaWf5",
+                  "name": "cardB",
+                  "width": 446,
+                  "fill": "#FBFCFF",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "50sR0",
+                      "name": "cardBK",
+                      "fill": "#0F172A",
+                      "content": "Multi-Client API Services",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "bold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "3cIVa",
+                      "name": "cardBP",
+                      "fill": "#475569",
+                      "content": "Built scalable API services and contracts for multiple client applications.",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "3Xkvu",
+                      "name": "cardBS",
+                      "fill": "#64748B",
+                      "content": "Node.js · NestJS · PostgreSQL · Azure",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "9whJQ",
+                      "name": "cardBO",
+                      "fill": "#334155",
+                      "content": "Outcome: cleaner integrations and easier deployment",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "QGVMK",
+                      "name": "cardBL",
+                      "fill": "#2563EB",
+                      "content": "Read Case Study →",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "semibold"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "nTZzZ",
+                  "name": "cardC",
+                  "width": 446,
+                  "fill": "#FBFCFF",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "pgxsJ",
+                      "name": "cardCK",
+                      "fill": "#0F172A",
+                      "content": "AI Workflow Integration",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "bold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "bnbXY",
+                      "name": "cardCP",
+                      "fill": "#475569",
+                      "content": "Integrated MCP and automation workflows for repetitive engineering tasks.",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Zmdj9",
+                      "name": "cardCS",
+                      "fill": "#64748B",
+                      "content": "Python · MCP · Automation",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "F9SEa",
+                      "name": "cardCO",
+                      "fill": "#334155",
+                      "content": "Outcome: faster implementation loops",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "9zV4x",
+                      "name": "cardCL",
+                      "fill": "#2563EB",
+                      "content": "Read Case Study →",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "semibold"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "23eCJ",
+          "name": "Services",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "cornerRadius": 24,
+          "layout": "vertical",
+          "gap": 14,
+          "padding": 20,
+          "children": [
+            {
+              "type": "text",
+              "id": "XuQ3y",
+              "name": "svcHead5",
+              "fill": "#0F172A",
+              "content": "Services",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "bold"
+            },
+            {
+              "type": "frame",
+              "id": "8w25U",
+              "name": "svcCols",
+              "width": "fill_container",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "IYj9U",
+                  "name": "svcA",
+                  "width": 446,
+                  "fill": "#FBFCFF",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "mhXKq",
+                      "name": "svcAIcon",
+                      "width": 28,
+                      "height": 28,
+                      "fill": "#EAF2FF",
+                      "cornerRadius": 999
+                    },
+                    {
+                      "type": "text",
+                      "id": "5uVDa",
+                      "name": "svcAT",
+                      "fill": "#0F172A",
+                      "content": "Backend & API Architecture",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "bold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "FvJsL",
+                      "name": "svcAB",
+                      "fill": "#475569",
+                      "content": "Designing reliable services and clean API contracts for real production use.",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "SfoNE",
+                  "name": "svcB",
+                  "width": 446,
+                  "fill": "#FBFCFF",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "jKXlY",
+                      "name": "svcBIcon",
+                      "width": 28,
+                      "height": 28,
+                      "fill": "#EAF2FF",
+                      "cornerRadius": 999
+                    },
+                    {
+                      "type": "text",
+                      "id": "MDjvZ",
+                      "name": "svcBT",
+                      "fill": "#0F172A",
+                      "content": "Cloud & DevOps Engineering",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "bold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "x1I0M",
+                      "name": "svcBB",
+                      "fill": "#475569",
+                      "content": "Deployment workflows and smoother release operations.",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "GeWJG",
+                  "name": "svcC",
+                  "width": 446,
+                  "fill": "#FBFCFF",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "v0pw8",
+                      "name": "svcCIcon",
+                      "width": 28,
+                      "height": 28,
+                      "fill": "#EAF2FF",
+                      "cornerRadius": 999
+                    },
+                    {
+                      "type": "text",
+                      "id": "eZA7a",
+                      "name": "svcCT",
+                      "fill": "#0F172A",
+                      "content": "AI Workflow Integration",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "bold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "z5Znc",
+                      "name": "svcCB",
+                      "fill": "#475569",
+                      "content": "Practical AI-assisted workflows that accelerate delivery.",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "fwcsR",
+          "name": "Final CTA",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "cornerRadius": 24,
+          "layout": "vertical",
+          "gap": 10,
+          "padding": 30,
+          "children": [
+            {
+              "type": "text",
+              "id": "4RoKe",
+              "name": "cta5T",
+              "fill": "#0F172A",
+              "content": "Tell me what you're building.",
+              "fontFamily": "Inter",
+              "fontSize": 28,
+              "fontWeight": "bold"
+            },
+            {
+              "type": "frame",
+              "id": "vYouj",
+              "name": "cta5Row",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "HzZVA",
+                  "name": "cta5A",
+                  "fill": "#2563EB",
+                  "cornerRadius": 999,
+                  "padding": [
+                    12,
+                    16
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "IinG9",
+                      "name": "cta5AT",
+                      "fill": "#FFFFFF",
+                      "content": "Email Me",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "semibold"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "vstHJ",
+                  "name": "cta5B",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 999,
+                  "padding": [
+                    12,
+                    16
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "zbJEb",
+                      "name": "cta5BT",
+                      "fill": "#0F172A",
+                      "content": "View GitHub",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "semibold"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "UQV6s",
+              "name": "cta5N",
+              "fill": "#64748B",
+              "content": "Currently available for selected projects.",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

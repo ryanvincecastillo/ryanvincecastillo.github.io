@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projects and case studies by Ryan Vince Castillo — web apps, backend systems, mobile apps, and AI workflows built for clients worldwide.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ryanvincecastillo.com/projects/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Projects | Ryan Vince Castillo — Web Apps, Backend & Mobile">
+  <meta property="og:description" content="Case studies and featured projects from a Philippines-based software developer.">
+  <meta property="og:url" content="https://ryanvincecastillo.com/projects/">
+  <meta property="og:image" content="https://ryanvincecastillo.com/files/profile-photo.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Projects | Ryan Vince Castillo — Web Apps, Backend & Mobile">
+  <meta name="twitter:description" content="Case studies and featured projects from a Philippines-based software developer.">
+  <meta name="twitter:image" content="https://ryanvincecastillo.com/files/profile-photo.jpg">
+  <title>Projects | Ryan Vince Castillo — Web Apps, Backend & Mobile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Projects by Ryan Vince Castillo",
+      "url": "https://ryanvincecastillo.com/projects/",
+      "numberOfItems": 2,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "InaanApp",
+          "url": "https://inaanapp.vercel.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ressa Noise Detector",
+          "url": "https://ressa-noise-detector-app.vercel.app/"
+        }
+      ]
+    }
+  </script>
+</head>
+<body class="dark" data-page="projects">
+  <div class="cursor-spotlight" aria-hidden="true"></div>
+  <div class="bg-ambient" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="../">rvc</a>
+    <nav class="nav">
+      <a href="../about/">about</a>
+      <a href="../projects/">projects</a>
+      <a href="../contact/">contact</a>
+      <a href="../full-stack-developer-philippines/">hire me</a>
+    </nav>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" aria-pressed="true">
+      <span class="theme-icon" aria-hidden="true"></span>
+      <span class="theme-label">Dark</span>
+      <span class="theme-thumb" aria-hidden="true"></span>
+    </button>
+  </header>
+
+  <main class="layout">
+    <section class="card page-header reveal">
+      <p class="eyebrow">// work</p>
+      <h1>Projects & Case Studies</h1>
+      <p>A selection of web apps, backend systems, mobile apps, and AI workflows I've built for clients and for myself.</p>
+    </section>
+
+    <section class="card case-study-featured reveal">
+      <div class="case-study-body">
+        <figure class="case-study-shot">
+          <img src="../images/inaanapp-homepage.png" alt="InaanApp homepage" loading="lazy">
+        </figure>
+        <div class="case-study-text">
+          <p class="eyebrow">// featured &middot; shipped product</p>
+          <h2>InaanApp</h2>
+          <p>A relationship memory app for Filipino families. Track ninong, ninang, and inaanak connections with birthday reminders, event history, and Pamasko mode for holiday gift planning.</p>
+          <div class="inaan-tech">
+            <span>Flutter</span>
+            <span>Dart</span>
+            <span>Supabase</span>
+            <span>Vercel</span>
+          </div>
+          <div class="inaan-cta">
+            <a href="https://inaanapp.vercel.app/" target="_blank" rel="noopener noreferrer" class="button">Visit Live Site</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card projects-showcase reveal">
+      <div class="projects-head">
+        <div>
+          <h2>// all projects</h2>
+          <div class="project-filters" role="group" aria-label="Filter projects">
+            <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter-btn" type="button" data-filter="website" aria-pressed="false">Website</button>
+            <button class="filter-btn" type="button" data-filter="webapp" aria-pressed="false">Web App</button>
+            <button class="filter-btn" type="button" data-filter="mobile" aria-pressed="false">Mobile</button>
+            <button class="filter-btn" type="button" data-filter="desktop" aria-pressed="false">Desktop</button>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-shell">
+        <button id="carousel-prev" class="carousel-edge carousel-edge-left" aria-label="Previous">
+          <span class="carousel-btn">&#8249;</span>
+        </button>
+        <div class="carousel-window">
+          <div id="projects-track" class="projects-track"></div>
+        </div>
+        <button id="carousel-next" class="carousel-edge carousel-edge-right" aria-label="Next">
+          <span class="carousel-btn">&#8250;</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> Ryan Vince Castillo</p>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
