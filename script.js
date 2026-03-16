@@ -29,6 +29,26 @@ const projects = [
     github: ""
   },
   {
+    name: "Yes Honey",
+    description: "Couples app that turns household asks into visible promises — one tap to ask, one tap to commit. No nagging, just a calm, shared rhythm.",
+    technologies: ["Flutter", "Dart", "Supabase", "Vercel"],
+    type: "webapp",
+    image: basePath + "images/yes-honey-app-homepage.png",
+    platform: ["Web", "Mobile-Android", "Mobile-iOS"],
+    live: "https://yes-honey-app.vercel.app/",
+    github: ""
+  },
+  {
+    name: "Reynalyn Grace Professional Website",
+    description: "Professional portfolio website for a virtual assistant — showcasing services like administrative support, outreach coordination, data management, and social media assistance.",
+    technologies: ["Wix"],
+    type: "website",
+    image: basePath + "images/wix-reynalyn-grace-professional-website-homepage.png",
+    platform: ["Web"],
+    live: "https://ryanvincecastillo.wixsite.com/reynalyn-grace",
+    github: ""
+  },
+  {
     name: "Ressa Noise Detector",
     description: "Desktop noise detection app built with Electron and Vite, packaged for macOS and Windows.",
     technologies: ["Electron", "Vite"],
