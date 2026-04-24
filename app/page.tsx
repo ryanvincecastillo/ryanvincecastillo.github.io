@@ -26,6 +26,7 @@ import {
 } from "@/components/ui/floating-icons-hero-section";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { ProjectsSection } from "@/components/projects-section";
+import { AboutSection } from "@/components/about-section";
 import { ContactSection } from "@/components/contact-section";
 import { SiteFooter } from "@/components/site-footer";
 
@@ -65,6 +66,7 @@ export default function Home() {
         icons={icons}
       />
       <ProjectsSection />
+      <AboutSection />
       <ContactSection />
       <SiteFooter />
     </>

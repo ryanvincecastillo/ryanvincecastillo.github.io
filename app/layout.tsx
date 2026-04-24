@@ -31,6 +31,40 @@ export const metadata: Metadata = {
   },
 };
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Ryan Vince Castillo",
+  jobTitle: "Software Developer",
+  url: "https://ryanvincecastillo.com",
+  image: "https://ryanvincecastillo.com/files/profile-photo.jpg",
+  email: "mailto:ryanvincecastillo@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "PH",
+    addressLocality: "Davao City",
+  },
+  sameAs: [
+    "https://github.com/ryanvincecastillo",
+    "https://www.linkedin.com/in/ryan-vince-castillo-67690b20a/",
+  ],
+  knowsAbout: [
+    ".NET",
+    "Node.js",
+    "TypeScript",
+    "React",
+    "React Native",
+    "Flutter",
+    "Supabase",
+    "PostgreSQL",
+    "Azure",
+    "Docker",
+    "Microservices",
+    "AI-assisted software development",
+    "MCP servers",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -48,6 +82,10 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
       </body>
     </html>
   );
