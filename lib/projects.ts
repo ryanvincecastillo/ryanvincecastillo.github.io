@@ -10,6 +10,16 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
+    slug: "avocado-go",
+    title: "Avocado Go",
+    tagline: "Friends-first coordination app — from chat to actually showing up.",
+    description:
+      "Plan group activities, track RSVPs, share live location with avocado character markers, post recaps, and split expenses — all in one flow.",
+    image: "/images/avocado-go-homepage.png",
+    tech: ["Flutter", "Dart", "Supabase", "Firebase"],
+    url: "https://avocado-go.vercel.app/",
+  },
+  {
     slug: "inaan-app",
     title: "InaanApp",
     tagline: "Relationship memory app for Filipino families.",
