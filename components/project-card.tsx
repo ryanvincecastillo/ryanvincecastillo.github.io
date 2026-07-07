@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/lib/projects";
+import { getProjectLabel } from "@/lib/projects";
 
 export function ProjectCard({
   project,
@@ -30,16 +31,9 @@ export function ProjectCard({
         />
       </div>
       <div className="p-6">
-        {project.clientWork && (
-          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-            Client project
-          </p>
-        )}
-        {project.ownBusiness && (
-          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-            My business
-          </p>
-        )}
+        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          {getProjectLabel(project)}
+        </p>
         <h3 className="text-xl font-bold tracking-tight text-foreground">
           {project.title}
         </h3>

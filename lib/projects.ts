@@ -1,3 +1,5 @@
+export type ProjectCategory = "ownBusiness" | "clientWork" | "personal";
+
 export type Project = {
   slug: string;
   title: string;
@@ -7,11 +9,21 @@ export type Project = {
   image: string;
   tech: string[];
   url?: string;
-  clientWork?: boolean;
-  ownBusiness?: boolean;
+  category: ProjectCategory;
   role?: string;
   highlights?: string[];
 };
+
+export function getProjectLabel(project: Project): string {
+  switch (project.category) {
+    case "ownBusiness":
+      return "My business";
+    case "clientWork":
+      return "Client project";
+    case "personal":
+      return "Personal project";
+  }
+}
 
 export const PROJECTS: Project[] = [
   {
@@ -33,7 +45,7 @@ export const PROJECTS: Project[] = [
       "Railway",
     ],
     url: "https://rynxplay.com",
-    ownBusiness: true,
+    category: "ownBusiness",
     role: "Founder & full-stack builder",
     highlights: [
       "Live device control across Windows, Android & web",
@@ -44,15 +56,15 @@ export const PROJECTS: Project[] = [
   {
     slug: "reynalyn-grace",
     title: "Reynalyn Grace",
-    tagline: "Professional portfolio for a virtual assistant.",
+    tagline: "Professional website for a virtual assistant.",
     description:
-      "Showcasing services like administrative support, outreach coordination, data management, and social media assistance.",
+      "A client website for my wife's virtual assistant business — showcasing services like administrative support, outreach coordination, data management, and social media assistance.",
     outcome:
       "A polished web presence that helps a solo operator win clients — without the cost of a full agency build.",
     image: "/images/wix-reynalyn-grace-professional-website-homepage.png",
     tech: ["Wix"],
     url: "https://ryanvincecastillo.wixsite.com/reynalyn-grace",
-    clientWork: true,
+    category: "clientWork",
   },
   {
     slug: "avocado-go",
@@ -63,6 +75,7 @@ export const PROJECTS: Project[] = [
     image: "/images/avocado-go-homepage.png",
     tech: ["Flutter", "Dart", "Supabase", "Firebase"],
     url: "https://avocado-go.vercel.app/",
+    category: "personal",
   },
   {
     slug: "inaan-app",
@@ -73,6 +86,7 @@ export const PROJECTS: Project[] = [
     image: "/images/inaanapp-homepage.png",
     tech: ["Flutter", "Dart", "Supabase", "Vercel"],
     url: "https://inaanapp.vercel.app/",
+    category: "personal",
   },
   {
     slug: "yes-honey",
@@ -83,6 +97,7 @@ export const PROJECTS: Project[] = [
     image: "/images/yes-honey-app-homepage.png",
     tech: ["Flutter", "Dart", "Supabase", "Vercel"],
     url: "https://yes-honey-app.vercel.app/",
+    category: "personal",
   },
   {
     slug: "ressa-noise-detector",
@@ -93,8 +108,11 @@ export const PROJECTS: Project[] = [
     image: "/images/ressa-homepage.png",
     tech: ["Electron", "Vite"],
     url: "https://ressa-noise-detector-app.vercel.app/",
+    category: "personal",
   },
 ];
 
-export const OWN_BUSINESS = PROJECTS.filter((p) => p.ownBusiness);
-export const PORTFOLIO_PROJECTS = PROJECTS.filter((p) => !p.ownBusiness);
+export const OWN_BUSINESS = PROJECTS.filter((p) => p.category === "ownBusiness");
+export const CLIENT_WORK = PROJECTS.filter((p) => p.category === "clientWork");
+export const PERSONAL_PROJECTS = PROJECTS.filter((p) => p.category === "personal");
+export const PROFESSIONAL_WORK = PROJECTS.filter((p) => p.category !== "personal");
