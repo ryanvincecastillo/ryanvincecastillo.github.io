@@ -21,6 +21,15 @@ export function SiteFooter() {
           <span aria-hidden className="hidden sm:inline">
             ·
           </span>
+          <Link
+            href="/resume/"
+            className="hidden text-muted-foreground transition hover:text-foreground sm:inline"
+          >
+            Resume
+          </Link>
+          <span aria-hidden className="hidden sm:inline">
+            ·
+          </span>
           <p className="hidden sm:block">Built in Davao City · Remote worldwide</p>
         </div>
 

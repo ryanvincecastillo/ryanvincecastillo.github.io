@@ -27,6 +27,7 @@ import {
 import { SiteHeader } from "@/components/site-header";
 import { ServicesSection } from "@/components/services-section";
 import { ProjectsSection } from "@/components/projects-section";
+import { CredentialsSection } from "@/components/credentials-section";
 import { AboutSection } from "@/components/about-section";
 import { ContactSection } from "@/components/contact-section";
 import { SiteFooter } from "@/components/site-footer";
@@ -61,7 +62,7 @@ export default function Home() {
       <SiteHeader />
       <FloatingIconsHero
         title="Build software that saves your business time and money."
-        subtitle="I'm Ryan Vince Castillo — a full-stack developer who helps business owners replace manual work, cut tool costs, and ship custom systems without agency overhead."
+        subtitle="Ryan Vince Castillo (Ryan Castillo) — a full-stack and AI developer who helps business owners replace manual work, cut tool costs, and ship custom systems without agency overhead."
         ctaText="Book a free consult"
         ctaHref="#contact"
         secondaryCtaText="See how I help"
@@ -70,6 +71,7 @@ export default function Home() {
       />
       <ServicesSection />
       <ProjectsSection />
+      <CredentialsSection />
       <AboutSection />
       <ContactSection />
       <SiteFooter />

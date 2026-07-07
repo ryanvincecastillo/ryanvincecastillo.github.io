@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import { personJsonLd, professionalServiceJsonLd, siteMetadata } from "@/lib/seo";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -9,65 +10,13 @@ const poppins = Poppins({
   variable: "--font-sans",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://ryanvincecastillo.com"),
-  title: "Ryan Vince Castillo — Developer for Business Owners",
-  description:
-    "Full-stack developer helping business owners automate work, cut software costs, and ship custom systems without agency overhead. Free consultation available.",
-  openGraph: {
-    type: "website",
-    url: "https://ryanvincecastillo.com/",
-    title: "Ryan Vince Castillo — Developer for Business Owners",
-    description:
-      "Full-stack developer helping business owners automate work, cut software costs, and ship custom systems without agency overhead.",
-    images: ["/files/profile-photo.jpg"],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Ryan Vince Castillo — Developer for Business Owners",
-    description:
-      "Full-stack developer helping business owners automate work, cut software costs, and ship custom systems without agency overhead.",
-    images: ["/files/profile-photo.jpg"],
-  },
-};
-
-const personJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Ryan Vince Castillo",
-  jobTitle: "Full-Stack Developer for Business Owners",
-  url: "https://ryanvincecastillo.com",
-  image: "https://ryanvincecastillo.com/files/profile-photo.jpg",
-  email: "mailto:ryanvincecastillo@gmail.com",
-  address: {
-    "@type": "PostalAddress",
-    addressCountry: "PH",
-    addressLocality: "Davao City",
-  },
-  sameAs: [
-    "https://github.com/ryanvincecastillo",
-    "https://www.linkedin.com/in/ryan-vince-castillo-67690b20a/",
-  ],
-  knowsAbout: [
-    ".NET",
-    "Node.js",
-    "TypeScript",
-    "React",
-    "React Native",
-    "Flutter",
-    "Supabase",
-    "PostgreSQL",
-    "Azure",
-    "Docker",
-    "Microservices",
-    "AI-assisted software development",
-    "MCP servers",
-  ],
-};
+export const metadata: Metadata = siteMetadata;
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const jsonLd = [personJsonLd(), professionalServiceJsonLd()];
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -84,7 +33,7 @@ export default function RootLayout({
         </ThemeProvider>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </body>
     </html>
