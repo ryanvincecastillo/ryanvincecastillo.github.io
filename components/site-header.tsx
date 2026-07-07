@@ -7,6 +7,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 
 const NAV = [
   { label: "Services", href: "#services" },
+  { label: "Business", href: "#business" },
   { label: "Work", href: "#work" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },

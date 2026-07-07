@@ -8,9 +8,39 @@ export type Project = {
   tech: string[];
   url?: string;
   clientWork?: boolean;
+  ownBusiness?: boolean;
+  role?: string;
+  highlights?: string[];
 };
 
 export const PROJECTS: Project[] = [
+  {
+    slug: "rynxplay",
+    title: "RYNXPLAY",
+    tagline: "Run your PisoNet shop from one dashboard.",
+    description:
+      "A multi-tenant SaaS platform for coin-operated device rental shops in the Philippines. Shop owners manage PCs, phones, and tablets from one command center — coin drops credit sessions automatically, devices lock and unlock in real time, and every peso is tracked across branches.",
+    outcome:
+      "Shop owners replace manual timers and paper logs with automated coin-to-session tracking, live floor visibility, and branch-level sales reports — reducing revenue leakage and scaling without hiring more floor staff.",
+    image: "/images/rynxplay-homepage.png",
+    tech: [
+      "NestJS",
+      "Next.js",
+      "PostgreSQL",
+      ".NET",
+      "Kotlin",
+      "Flutter",
+      "Railway",
+    ],
+    url: "https://rynxplay.com",
+    ownBusiness: true,
+    role: "Founder & full-stack builder",
+    highlights: [
+      "Live device control across Windows, Android & web",
+      "Coin acceptors credit sessions automatically",
+      "Multi-branch ops with staff roles & reports",
+    ],
+  },
   {
     slug: "reynalyn-grace",
     title: "Reynalyn Grace",
@@ -65,3 +95,6 @@ export const PROJECTS: Project[] = [
     url: "https://ressa-noise-detector-app.vercel.app/",
   },
 ];
+
+export const OWN_BUSINESS = PROJECTS.filter((p) => p.ownBusiness);
+export const PORTFOLIO_PROJECTS = PROJECTS.filter((p) => !p.ownBusiness);

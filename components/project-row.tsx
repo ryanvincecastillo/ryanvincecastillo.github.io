@@ -38,7 +38,11 @@ export function ProjectRow({
 
       <div className={flipped ? "lg:order-1 lg:pr-6" : "lg:pl-6"}>
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          {project.clientWork ? "Client project" : `Case ${String(index + 1).padStart(2, "0")}`}
+          {project.ownBusiness
+            ? "My business"
+            : project.clientWork
+              ? "Client project"
+              : `Case ${String(index + 1).padStart(2, "0")}`}
         </p>
         <h3 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           {project.title}

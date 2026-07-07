@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ProjectRow } from "@/components/project-row";
-import { PROJECTS } from "@/lib/projects";
+import { PORTFOLIO_PROJECTS } from "@/lib/projects";
 
 const FEATURED_COUNT = 4;
 
 export function ProjectsSection() {
-  const featured = PROJECTS.slice(0, FEATURED_COUNT);
-  const hasMore = PROJECTS.length > FEATURED_COUNT;
+  const featured = PORTFOLIO_PROJECTS.slice(0, FEATURED_COUNT);
+  const hasMore = PORTFOLIO_PROJECTS.length > FEATURED_COUNT;
 
   return (
     <section id="work" className="w-full px-6 py-24 sm:px-10 sm:py-32">

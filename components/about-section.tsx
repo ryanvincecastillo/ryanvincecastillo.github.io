@@ -51,7 +51,16 @@ export function AboutSection() {
               </p>
               <p>
                 I handle everything from customer-facing websites to internal
-                tools, automations, and AI-assisted workflows. You get one
+                tools, automations, and AI-assisted workflows — including{" "}
+                <a
+                  href="https://rynxplay.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-foreground underline decoration-foreground/30 underline-offset-4 transition hover:decoration-foreground/60"
+                >
+                  RYNXPLAY
+                </a>
+                , my own SaaS for PisoNet and device rental shops. You get one
                 person who can design, build, deploy, and maintain — which
                 typically costs far less than hiring an agency or juggling
                 multiple freelancers.

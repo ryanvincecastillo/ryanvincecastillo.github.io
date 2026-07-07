@@ -35,6 +35,11 @@ export function ProjectCard({
             Client project
           </p>
         )}
+        {project.ownBusiness && (
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+            My business
+          </p>
+        )}
         <h3 className="text-xl font-bold tracking-tight text-foreground">
           {project.title}
         </h3>
