@@ -24,7 +24,8 @@ import {
   FloatingIconsHero,
   type FloatingIconsHeroProps,
 } from "@/components/ui/floating-icons-hero-section";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { SiteHeader } from "@/components/site-header";
+import { ServicesSection } from "@/components/services-section";
 import { ProjectsSection } from "@/components/projects-section";
 import { AboutSection } from "@/components/about-section";
 import { ContactSection } from "@/components/contact-section";
@@ -57,14 +58,17 @@ const icons: FloatingIconsHeroProps["icons"] = [
 export default function Home() {
   return (
     <>
-      <ThemeToggle />
+      <SiteHeader />
       <FloatingIconsHero
-        title="RYAN VINCE CASTILLO"
-        subtitle="I'm Ryan Vince Castillo — a software developer from Davao City, Philippines, building modern web apps, backend systems, and AI-assisted workflows for teams around the world."
-        ctaText="Start a project"
+        title="Build software that saves your business time and money."
+        subtitle="I'm Ryan Vince Castillo — a full-stack developer who helps business owners replace manual work, cut tool costs, and ship custom systems without agency overhead."
+        ctaText="Book a free consult"
         ctaHref="#contact"
+        secondaryCtaText="See how I help"
+        secondaryCtaHref="#services"
         icons={icons}
       />
+      <ServicesSection />
       <ProjectsSection />
       <AboutSection />
       <ContactSection />

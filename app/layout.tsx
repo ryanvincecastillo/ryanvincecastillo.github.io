@@ -11,22 +11,22 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ryanvincecastillo.com"),
-  title: "Ryan Vince Castillo",
+  title: "Ryan Vince Castillo — Developer for Business Owners",
   description:
-    "Philippines-based software developer building modern web apps, backend systems, and AI-assisted engineering workflows.",
+    "Full-stack developer helping business owners automate work, cut software costs, and ship custom systems without agency overhead. Free consultation available.",
   openGraph: {
     type: "website",
     url: "https://ryanvincecastillo.com/",
-    title: "Ryan Vince Castillo",
+    title: "Ryan Vince Castillo — Developer for Business Owners",
     description:
-      "Philippines-based software developer building modern web apps, backend systems, and AI-assisted engineering workflows.",
+      "Full-stack developer helping business owners automate work, cut software costs, and ship custom systems without agency overhead.",
     images: ["/files/profile-photo.jpg"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ryan Vince Castillo",
+    title: "Ryan Vince Castillo — Developer for Business Owners",
     description:
-      "Philippines-based software developer building modern web apps, backend systems, and AI-assisted engineering workflows.",
+      "Full-stack developer helping business owners automate work, cut software costs, and ship custom systems without agency overhead.",
     images: ["/files/profile-photo.jpg"],
   },
 };
@@ -35,7 +35,7 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Ryan Vince Castillo",
-  jobTitle: "Software Developer",
+  jobTitle: "Full-Stack Developer for Business Owners",
   url: "https://ryanvincecastillo.com",
   image: "https://ryanvincecastillo.com/files/profile-photo.jpg",
   email: "mailto:ryanvincecastillo@gmail.com",

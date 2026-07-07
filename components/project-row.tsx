@@ -38,7 +38,7 @@ export function ProjectRow({
 
       <div className={flipped ? "lg:order-1 lg:pr-6" : "lg:pl-6"}>
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          Case {String(index + 1).padStart(2, "0")}
+          {project.clientWork ? "Client project" : `Case ${String(index + 1).padStart(2, "0")}`}
         </p>
         <h3 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           {project.title}
@@ -47,6 +47,13 @@ export function ProjectRow({
         <p className="mt-4 text-base leading-relaxed text-muted-foreground">
           {project.description}
         </p>
+
+        {project.outcome && (
+          <p className="mt-4 rounded-xl border border-border/60 bg-muted/50 px-4 py-3 text-sm leading-relaxed text-foreground/85">
+            <span className="font-semibold">Business outcome:</span>{" "}
+            {project.outcome}
+          </p>
+        )}
 
         {project.tech.length > 0 && (
           <ul className="mt-6 flex flex-wrap gap-2">

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { ProjectCard } from "@/components/project-card";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { SiteHeader } from "@/components/site-header";
 import { ContactSection } from "@/components/contact-section";
 import { SiteFooter } from "@/components/site-footer";
 import { PROJECTS } from "@/lib/projects";
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function WorkPage() {
   return (
     <>
-      <ThemeToggle />
+      <SiteHeader />
       <main className="w-full px-6 py-20 sm:px-10 sm:py-28">
         <div className="mx-auto max-w-7xl">
           <Link
@@ -33,14 +33,14 @@ export default function WorkPage() {
               {PROJECTS.length === 1 ? "project" : "projects"}
             </p>
             <h1 className="mt-3 text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-6xl">
-              Projects I&apos;ve built,{" "}
+              Work that ships for{" "}
               <span className="text-muted-foreground">
-                shipped, or shaped.
+                real businesses and products.
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground">
-              A rotating selection. Some are personal, some were built for
-              clients, some are still evolving.
+              Client websites, mobile apps, and internal tools — selected
+              projects that show how I deliver end to end.
             </p>
           </header>
 

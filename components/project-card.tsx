@@ -30,6 +30,11 @@ export function ProjectCard({
         />
       </div>
       <div className="p-6">
+        {project.clientWork && (
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+            Client project
+          </p>
+        )}
         <h3 className="text-xl font-bold tracking-tight text-foreground">
           {project.title}
         </h3>

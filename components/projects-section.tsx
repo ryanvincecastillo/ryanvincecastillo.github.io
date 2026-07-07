@@ -15,13 +15,14 @@ export function ProjectsSection() {
         <div className="mb-16 flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-              Featured work
+              Client & product work
             </p>
             <h2 className="mt-3 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-              A few things I&apos;ve shipped.
+              Real projects. Real outcomes.
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              A curated selection. Personal, client, or still evolving.
+              From client websites to full product builds — here&apos;s proof I
+              ship things that work in the real world.
             </p>
           </div>
           <Link

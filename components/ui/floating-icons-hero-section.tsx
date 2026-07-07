@@ -17,6 +17,8 @@ export interface FloatingIconsHeroProps {
   subtitle: string;
   ctaText: string;
   ctaHref: string;
+  secondaryCtaText?: string;
+  secondaryCtaHref?: string;
   icons: IconProps[];
 }
 
@@ -107,7 +109,7 @@ const Icon = ({
 const FloatingIconsHero = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & FloatingIconsHeroProps
->(({ className, title, subtitle, ctaText, ctaHref, icons, ...props }, ref) => {
+>(({ className, title, subtitle, ctaText, ctaHref, secondaryCtaText, secondaryCtaHref, icons, ...props }, ref) => {
   const mouseX = React.useRef(0);
   const mouseY = React.useRef(0);
 
@@ -138,14 +140,17 @@ const FloatingIconsHero = React.forwardRef<
         ))}
       </div>
 
-      <div className="relative z-10 text-center px-4">
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight bg-gradient-to-b from-foreground to-foreground/70 text-transparent bg-clip-text">
+      <div className="relative z-10 text-center px-4 pt-16 sm:pt-20">
+        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+          Ryan Vince Castillo · Remote developer for business owners
+        </p>
+        <h1 className="mx-auto max-w-4xl text-4xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
           {title}
         </h1>
-        <p className="mt-6 max-w-xl mx-auto text-lg text-muted-foreground">
+        <p className="mt-6 max-w-2xl mx-auto text-lg text-muted-foreground sm:text-xl">
           {subtitle}
         </p>
-        <div className="mt-10">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
           <Button
             asChild
             size="lg"
@@ -153,6 +158,16 @@ const FloatingIconsHero = React.forwardRef<
           >
             <a href={ctaHref}>{ctaText}</a>
           </Button>
+          {secondaryCtaText && secondaryCtaHref && (
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="px-8 py-6 text-base font-semibold"
+            >
+              <a href={secondaryCtaHref}>{secondaryCtaText}</a>
+            </Button>
+          )}
         </div>
       </div>
     </section>

@@ -3,12 +3,27 @@ export type Project = {
   title: string;
   tagline: string;
   description: string;
+  outcome?: string;
   image: string;
   tech: string[];
   url?: string;
+  clientWork?: boolean;
 };
 
 export const PROJECTS: Project[] = [
+  {
+    slug: "reynalyn-grace",
+    title: "Reynalyn Grace",
+    tagline: "Professional portfolio for a virtual assistant.",
+    description:
+      "Showcasing services like administrative support, outreach coordination, data management, and social media assistance.",
+    outcome:
+      "A polished web presence that helps a solo operator win clients — without the cost of a full agency build.",
+    image: "/images/wix-reynalyn-grace-professional-website-homepage.png",
+    tech: ["Wix"],
+    url: "https://ryanvincecastillo.wixsite.com/reynalyn-grace",
+    clientWork: true,
+  },
   {
     slug: "avocado-go",
     title: "Avocado Go",
@@ -38,16 +53,6 @@ export const PROJECTS: Project[] = [
     image: "/images/yes-honey-app-homepage.png",
     tech: ["Flutter", "Dart", "Supabase", "Vercel"],
     url: "https://yes-honey-app.vercel.app/",
-  },
-  {
-    slug: "reynalyn-grace",
-    title: "Reynalyn Grace",
-    tagline: "Professional portfolio for a virtual assistant.",
-    description:
-      "Showcasing services like administrative support, outreach coordination, data management, and social media assistance.",
-    image: "/images/wix-reynalyn-grace-professional-website-homepage.png",
-    tech: ["Wix"],
-    url: "https://ryanvincecastillo.wixsite.com/reynalyn-grace",
   },
   {
     slug: "ressa-noise-detector",

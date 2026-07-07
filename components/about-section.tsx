@@ -2,23 +2,23 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Sparkles, Wrench, Compass } from "lucide-react";
+import { Clock, PiggyBank, ShieldCheck } from "lucide-react";
 
 const PILLARS = [
   {
-    icon: Wrench,
-    title: "Full-stack comfort",
-    body: "Frontend, backend, infra, deployment. Happy owning a problem end-to-end instead of throwing it over the wall.",
+    icon: PiggyBank,
+    title: "Built to reduce cost",
+    body: "I focus on what removes manual work or replaces expensive tools — not features that look good in a demo but never get used.",
   },
   {
-    icon: Compass,
-    title: "Calm delivery",
-    body: "Honest scopes, shipped on time. I'd rather deliver a small thing that works than a big thing that doesn't.",
+    icon: Clock,
+    title: "Shipped on honest timelines",
+    body: "Clear scope, regular updates, working software early. You always know where things stand and what you're paying for.",
   },
   {
-    icon: Sparkles,
-    title: "AI in the loop",
-    body: "I use AI to ship the boring parts faster — not as a gimmick, but as a real force multiplier on everyday work.",
+    icon: ShieldCheck,
+    title: "One person, end to end",
+    body: "You work directly with the developer — no account managers, no handoffs. Faster decisions, fewer misunderstandings.",
   },
 ];
 
@@ -33,31 +33,28 @@ export function AboutSection() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:gap-16"
         >
-          {/* Left: copy */}
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
               About
             </p>
             <h2 className="mt-3 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-              Software that quietly works.
+              A developer who speaks business, not just code.
             </h2>
 
             <div className="mt-6 space-y-5 text-lg leading-relaxed text-muted-foreground">
               <p>
-                I&apos;m a software developer based in Davao City, Philippines.
-                I work remotely with teams around the world — founders, product
-                squads, and indie builders who want someone who can own a
-                problem end-to-end and deliver calmly.
+                I&apos;m Ryan Vince Castillo, based in Davao City, Philippines
+                and working remotely with business owners worldwide. Most of my
+                clients aren&apos;t technical — they care about outcomes: less
+                admin, fewer mistakes, lower software bills, and systems that
+                actually match how their team works.
               </p>
               <p>
-                My day-to-day is full-stack:{" "}
-                <span className="text-foreground/85">
-                  TypeScript and React on the front, .NET / Node on the back,
-                </span>{" "}
-                with Supabase or Postgres when data needs to persist. Lately
-                I&apos;ve been leaning into AI-assisted workflows — not as a
-                gimmick, but as a faster way to ship the boring parts so you
-                can think about the interesting ones.
+                I handle everything from customer-facing websites to internal
+                tools, automations, and AI-assisted workflows. You get one
+                person who can design, build, deploy, and maintain — which
+                typically costs far less than hiring an agency or juggling
+                multiple freelancers.
               </p>
             </div>
 
@@ -79,7 +76,6 @@ export function AboutSection() {
             </ul>
           </div>
 
-          {/* Right: photo */}
           <div className="mx-auto w-full max-w-sm lg:mx-0 lg:max-w-none">
             <div className="relative overflow-hidden rounded-[2rem] border border-border/60 bg-card p-3 shadow-xl">
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted">
@@ -92,6 +88,9 @@ export function AboutSection() {
                 />
               </div>
             </div>
+            <p className="mt-4 text-center text-sm text-muted-foreground lg:text-left">
+              Replies within a day · Remote worldwide · UTC+8
+            </p>
           </div>
         </motion.div>
       </div>
