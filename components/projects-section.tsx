@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ProjectRow } from "@/components/project-row";
-import { CLIENT_WORK, PERSONAL_PROJECTS } from "@/lib/projects";
+import { CLIENT_BUSINESS, PERSONAL_PROJECTS } from "@/lib/projects";
 
 export function ProjectsSection() {
   return (
@@ -10,14 +10,14 @@ export function ProjectsSection() {
         <div className="mb-16 flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-              Client work
+              Client & business work
             </p>
             <h2 className="mt-3 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-              Built for a real business.
+              Built for real businesses.
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Professional work for clients — alongside RYNXPLAY, my own SaaS
-              business featured above.
+              Software and websites shipped for business clients — from a live
+              SaaS platform to a professional site for a solo operator.
             </p>
           </div>
           {PERSONAL_PROJECTS.length > 0 && (
@@ -32,7 +32,7 @@ export function ProjectsSection() {
         </div>
 
         <div className="space-y-24 sm:space-y-32">
-          {CLIENT_WORK.map((p, i) => (
+          {CLIENT_BUSINESS.map((p, i) => (
             <ProjectRow key={p.slug} project={p} index={i} />
           ))}
         </div>

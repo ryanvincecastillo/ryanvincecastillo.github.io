@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import type { Project } from "@/lib/projects";
 import { getProjectLabel } from "@/lib/projects";
 
@@ -41,6 +41,9 @@ export function ProjectRow({
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
           {getProjectLabel(project)}
         </p>
+        {project.role && (
+          <p className="mt-2 text-sm text-muted-foreground">{project.role}</p>
+        )}
         <h3 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           {project.title}
         </h3>
@@ -48,6 +51,23 @@ export function ProjectRow({
         <p className="mt-4 text-base leading-relaxed text-muted-foreground">
           {project.description}
         </p>
+
+        {project.highlights && project.highlights.length > 0 && (
+          <ul className="mt-5 space-y-2">
+            {project.highlights.map((item) => (
+              <li
+                key={item}
+                className="flex items-start gap-2.5 text-sm text-foreground/85"
+              >
+                <CheckCircle2
+                  className="mt-0.5 h-4 w-4 shrink-0 text-foreground/50"
+                  aria-hidden
+                />
+                {item}
+              </li>
+            ))}
+          </ul>
+        )}
 
         {project.outcome && (
           <p className="mt-4 rounded-xl border border-border/60 bg-muted/50 px-4 py-3 text-sm leading-relaxed text-foreground/85">

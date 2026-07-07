@@ -25,8 +25,8 @@ export function PersonalProjectsSection() {
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             These are personal experiments — not client or commercial work. They
-            show the range of what I can ship; my professional focus is RYNXPLAY
-            and client builds.
+            show the range of what I can ship; my professional work is client
+            and business builds.
           </p>
         </motion.div>
 

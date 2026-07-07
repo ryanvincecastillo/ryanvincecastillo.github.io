@@ -1,4 +1,4 @@
-export type ProjectCategory = "ownBusiness" | "clientWork" | "personal";
+export type ProjectCategory = "clientBusiness" | "clientWork" | "personal";
 
 export type Project = {
   slug: string;
@@ -16,8 +16,8 @@ export type Project = {
 
 export function getProjectLabel(project: Project): string {
   switch (project.category) {
-    case "ownBusiness":
-      return "My business";
+    case "clientBusiness":
+      return "Client business";
     case "clientWork":
       return "Client project";
     case "personal":
@@ -31,7 +31,7 @@ export const PROJECTS: Project[] = [
     title: "RYNXPLAY",
     tagline: "Run your PisoNet shop from one dashboard.",
     description:
-      "A multi-tenant SaaS platform for coin-operated device rental shops in the Philippines. Shop owners manage PCs, phones, and tablets from one command center — coin drops credit sessions automatically, devices lock and unlock in real time, and every peso is tracked across branches.",
+      "RYNXPLAY is a multi-tenant SaaS platform for coin-operated device rental shops in the Philippines. Shop owners manage PCs, phones, and tablets from one command center — coin drops credit sessions automatically, devices lock and unlock in real time, and every peso is tracked across branches.",
     outcome:
       "Shop owners replace manual timers and paper logs with automated coin-to-session tracking, live floor visibility, and branch-level sales reports — reducing revenue leakage and scaling without hiring more floor staff.",
     image: "/images/rynxplay-homepage.png",
@@ -45,12 +45,31 @@ export const PROJECTS: Project[] = [
       "Railway",
     ],
     url: "https://rynxplay.com",
-    category: "ownBusiness",
-    role: "Founder & full-stack builder",
+    category: "clientBusiness",
+    role: "Lead engineer",
     highlights: [
       "Live device control across Windows, Android & web",
       "Coin acceptors credit sessions automatically",
       "Multi-branch ops with staff roles & reports",
+    ],
+  },
+  {
+    slug: "sugola",
+    title: "SUGOLA",
+    tagline: "Neighborhood delivery and errands in Sto. Tomas.",
+    description:
+      "SUGOLA is a local delivery platform for Sto. Tomas, Davao del Norte — food, groceries, pharmacy, courier, and custom errands. Customers book on web or mobile; nearby riders accept orders directly, with no Facebook chat operator in the middle.",
+    outcome:
+      "A barangay-scale alternative to national delivery apps — instant booking, local riders who know the area, and live tracking for 3K+ customers since 2021.",
+    image: "/images/sugola-homepage.png",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
+    url: "https://sugola.vercel.app/",
+    category: "clientBusiness",
+    role: "Co-founder & engineer",
+    highlights: [
+      "Food, grocery, pharmacy, courier & custom errands",
+      "Riders accept orders directly — no chat operator",
+      "Serving Sto. Tomas since 2021",
     ],
   },
   {
@@ -123,7 +142,8 @@ export const PROJECTS: Project[] = [
   },
 ];
 
-export const OWN_BUSINESS = PROJECTS.filter((p) => p.category === "ownBusiness");
-export const CLIENT_WORK = PROJECTS.filter((p) => p.category === "clientWork");
+export const CLIENT_BUSINESS = PROJECTS.filter(
+  (p) => p.category === "clientBusiness" || p.category === "clientWork"
+);
 export const PERSONAL_PROJECTS = PROJECTS.filter((p) => p.category === "personal");
 export const PROFESSIONAL_WORK = PROJECTS.filter((p) => p.category !== "personal");

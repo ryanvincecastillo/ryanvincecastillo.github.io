@@ -60,7 +60,8 @@ export function AboutSection() {
                 >
                   RYNXPLAY
                 </a>
-                , my own SaaS for PisoNet and device rental shops. You get one
+                , a SaaS platform built for PisoNet and device rental shops.
+                You get one
                 person who can design, build, deploy, and maintain — which
                 typically costs far less than hiring an agency or juggling
                 multiple freelancers.

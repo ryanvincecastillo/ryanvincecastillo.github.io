@@ -26,12 +26,10 @@ import {
 } from "@/components/ui/floating-icons-hero-section";
 import { SiteHeader } from "@/components/site-header";
 import { ServicesSection } from "@/components/services-section";
-import { BusinessShowcase } from "@/components/business-showcase";
 import { ProjectsSection } from "@/components/projects-section";
 import { AboutSection } from "@/components/about-section";
 import { ContactSection } from "@/components/contact-section";
 import { SiteFooter } from "@/components/site-footer";
-import { OWN_BUSINESS } from "@/lib/projects";
 
 const icons: FloatingIconsHeroProps["icons"] = [
   // Tech stack
@@ -71,7 +69,6 @@ export default function Home() {
         icons={icons}
       />
       <ServicesSection />
-      {OWN_BUSINESS[0] && <BusinessShowcase project={OWN_BUSINESS[0]} />}
       <ProjectsSection />
       <AboutSection />
       <ContactSection />
