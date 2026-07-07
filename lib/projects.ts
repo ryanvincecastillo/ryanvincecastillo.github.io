@@ -67,6 +67,17 @@ export const PROJECTS: Project[] = [
     category: "clientWork",
   },
   {
+    slug: "rynxpense",
+    title: "RynxPense",
+    tagline: "AI trip budget planner — plan every peso.",
+    description:
+      "Enter a destination, dates, and budget to get a day-by-day AI itinerary with estimated costs. Track spending during the trip, stay on budget in real time, and share the plan with friends or family.",
+    image: "/images/rynxpense-homepage.png",
+    tech: ["Next.js", "Prisma", "PostgreSQL", "Groq AI", "Expo", "Vercel"],
+    url: "https://rynxpense.com/",
+    category: "personal",
+  },
+  {
     slug: "avocado-go",
     title: "Avocado Go",
     tagline: "Friends-first coordination app — from chat to actually showing up.",
