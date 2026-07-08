@@ -8,6 +8,7 @@ import {
   ACHIEVEMENTS,
   BACKGROUND,
   CONFERENCES,
+  CURRENT_ROLE,
   EDUCATION,
   PROFILE,
   SELECTED_WORK,
@@ -81,10 +82,32 @@ export default function ResumePage() {
 
           <section className="border-t border-border/60 py-10">
             <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+              Current role
+            </h2>
+            <div className="mt-6">
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 className="text-xl font-semibold text-foreground">
+                  {CURRENT_ROLE.company}
+                </h3>
+                <span className="text-sm text-muted-foreground">
+                  {CURRENT_ROLE.period}
+                </span>
+              </div>
+              <p className="mt-1 text-sm font-medium text-foreground/80">
+                {CURRENT_ROLE.role}
+              </p>
+              <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+                {CURRENT_ROLE.summary}
+              </p>
+            </div>
+          </section>
+
+          <section className="border-t border-border/60 py-10">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
               Selected work
             </h2>
             <p className="mt-2 text-sm text-muted-foreground">
-              Client and product builds with live links.{" "}
+              Products and client builds outside my day job.{" "}
               <Link href="/work/" className="font-medium text-foreground underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground/60">
                 View portfolio →
               </Link>

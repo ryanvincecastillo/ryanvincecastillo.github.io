@@ -48,9 +48,17 @@ export const PROFILE = {
   ],
 };
 
-/** One-line enterprise background — full history lives in the PDF CV. */
+/** One-line pointer — detailed history in PDF CV. */
 export const BACKGROUND =
-  "7+ years in full-stack development. Before client and product work, I led backend and cloud development at Jairosoft Inc. (enterprise .NET, Node.js, Azure). Employment and technical detail are in my downloadable CV.";
+  "Earlier roles include Marsman Drysdale Agribusiness Group and Southwood Mindanao Corporation. Full employment history and technical detail are in my downloadable CV.";
+
+export const CURRENT_ROLE: Experience = {
+  company: "Jairosoft Inc.",
+  role: "Software Developer / Line Manager",
+  period: "2021 — Present",
+  summary:
+    "Enterprise full-stack development for client deployments. Currently on Stevenson Systems — building and maintaining TruSpace and related commercial property / space-accounting applications (Next.js, .NET, Azure, SQL Server).",
+};
 
 export const EDUCATION: Education = {
   school: "University of Southeastern Philippines",
@@ -58,7 +66,7 @@ export const EDUCATION: Education = {
   period: "2014 — 2018",
 };
 
-/** Client-facing selected work — shown on /resume and portfolio. */
+/** Products and client builds — separate from full-time role at Jairosoft. */
 export const SELECTED_WORK: Experience[] = [
   {
     company: "RYNXPLAY",
@@ -98,6 +106,12 @@ export const SELECTED_WORK: Experience[] = [
 export const EXPERIENCE = SELECTED_WORK;
 
 export const ACHIEVEMENTS: Achievement[] = [
+  {
+    title: "TruSpace platform development",
+    detail:
+      "Full-stack work on Stevenson Systems' TruSpace refresh — property management, space accounting, and internal reporting (Next.js, .NET, Azure).",
+    year: "2024",
+  },
   {
     title: "Shipped RYNXPLAY to production",
     detail:
