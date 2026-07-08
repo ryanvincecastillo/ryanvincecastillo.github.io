@@ -73,6 +73,25 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
+    slug: "ade-garage",
+    title: "ADe Garage",
+    tagline: "Thai concept motorcycle parts — browse online, order where you shop.",
+    description:
+      "ADe Garage is a multi-channel brand hub for a motorcycle parts shop in Tagum City — Yasaki, RCB, SuperKips, and genuine OEM parts for Raider, Ninja, and underbone builds. Riders browse the catalog on the site, then order on Shopee, TikTok Shop, or Messenger without paying for a monthly storefront.",
+    outcome:
+      "The shop gets a professional web presence that drives orders to the channels it already uses — nationwide shipping messaging, fitment help on Messenger, and room to add Lazada when it launches.",
+    image: "/images/ade-garage-homepage.png",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
+    url: "https://adegarage.vercel.app",
+    category: "clientBusiness",
+    role: "Full-stack engineer",
+    highlights: [
+      "Catalog hub linking Shopee, TikTok Shop & Messenger",
+      "Thai concept vs genuine badges and category filters",
+      "Logo-aligned cyan theme with animated product cards",
+    ],
+  },
+  {
     slug: "reynalyn-grace",
     title: "Reynalyn Grace",
     tagline: "Professional website for a virtual assistant.",
