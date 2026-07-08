@@ -46,7 +46,7 @@ export const PROJECTS: Project[] = [
     ],
     url: "https://rynxplay.com",
     category: "clientBusiness",
-    role: "Lead engineer",
+    role: "Full-stack engineer",
     highlights: [
       "Live device control across Windows, Android & web",
       "Coin acceptors credit sessions automatically",
@@ -65,7 +65,7 @@ export const PROJECTS: Project[] = [
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
     url: "https://sugola.vercel.app/",
     category: "clientBusiness",
-    role: "Co-founder & engineer",
+    role: "Full-stack engineer",
     highlights: [
       "Food, grocery, pharmacy, courier & custom errands",
       "Riders accept orders directly — no chat operator",
@@ -77,7 +77,7 @@ export const PROJECTS: Project[] = [
     title: "Reynalyn Grace",
     tagline: "Professional website for a virtual assistant.",
     description:
-      "A client website for my wife's virtual assistant business — showcasing services like administrative support, outreach coordination, data management, and social media assistance.",
+      "A client website for a virtual assistant business — showcasing services like administrative support, outreach coordination, data management, and social media assistance.",
     outcome:
       "A polished web presence that helps a solo operator win clients — without the cost of a full agency build.",
     image: "/images/wix-reynalyn-grace-professional-website-homepage.png",

@@ -44,7 +44,7 @@ export const PROFILE = {
 export const EXPERIENCE: Experience[] = [
   {
     company: "RYNXPLAY",
-    role: "Lead engineer",
+    role: "Full-stack engineer",
     period: "Present",
     summary:
       "Multi-tenant SaaS for PisoNet and device rental shops — web console, Windows/Android agents, realtime device control, and branch-level reporting.",
@@ -52,7 +52,7 @@ export const EXPERIENCE: Experience[] = [
   },
   {
     company: "SUGOLA",
-    role: "Co-founder & engineer",
+    role: "Full-stack engineer",
     period: "2021 — Present",
     summary:
       "Local delivery and errands platform for Sto. Tomas, Davao del Norte — web booking, rider dispatch, and mobile apps serving 3K+ customers.",
@@ -75,9 +75,9 @@ export const ACHIEVEMENTS: Achievement[] = [
     year: "2024",
   },
   {
-    title: "Co-founded SUGOLA",
+    title: "Shipped SUGOLA platform",
     detail:
-      "Built and grew a neighborhood delivery platform in Sto. Tomas, trusted by 3K+ customers since 2021.",
+      "Built and maintained a neighborhood delivery platform in Sto. Tomas, serving 3K+ customers since 2021.",
     year: "2021",
   },
   {

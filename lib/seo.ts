@@ -107,7 +107,7 @@ export function professionalServiceJsonLd() {
     description:
       "Custom software, AI workflows, and full-stack development for business owners in the Philippines and worldwide.",
     areaServed: ["PH", "Worldwide"],
-    founder: {
+    provider: {
       "@type": "Person",
       name: PROFILE.name,
     },

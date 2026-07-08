@@ -26,7 +26,7 @@ export function CredentialsSection() {
               Achievements & background
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Production software, co-founded businesses, and shipped products —
+              Production software for business clients and shipped products —
               with a full resume for hiring managers and clients.
             </p>
           </div>
