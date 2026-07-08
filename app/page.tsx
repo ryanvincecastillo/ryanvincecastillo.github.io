@@ -67,6 +67,8 @@ export default function Home() {
         ctaHref="#contact"
         secondaryCtaText="See how I help"
         secondaryCtaHref="#services"
+        avatarSrc="/files/profile-photo.jpg"
+        avatarAlt="Ryan Vince Castillo"
         icons={icons}
       />
       <ServicesSection />

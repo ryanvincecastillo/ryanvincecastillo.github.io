@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -20,6 +21,8 @@ export interface FloatingIconsHeroProps {
   secondaryCtaText?: string;
   secondaryCtaHref?: string;
   icons: IconProps[];
+  avatarSrc?: string;
+  avatarAlt?: string;
 }
 
 const Icon = ({
@@ -109,7 +112,7 @@ const Icon = ({
 const FloatingIconsHero = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & FloatingIconsHeroProps
->(({ className, title, subtitle, ctaText, ctaHref, secondaryCtaText, secondaryCtaHref, icons, ...props }, ref) => {
+>(({ className, title, subtitle, ctaText, ctaHref, secondaryCtaText, secondaryCtaHref, icons, avatarSrc, avatarAlt, ...props }, ref) => {
   const mouseX = React.useRef(0);
   const mouseY = React.useRef(0);
 
@@ -141,6 +144,25 @@ const FloatingIconsHero = React.forwardRef<
       </div>
 
       <div className="relative z-10 text-center px-4 pt-16 sm:pt-20">
+        {avatarSrc && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="mx-auto mb-6 flex justify-center"
+          >
+            <div className="relative h-24 w-24 overflow-hidden rounded-full border-2 border-border/60 bg-card shadow-xl ring-4 ring-background sm:h-28 sm:w-28">
+              <Image
+                src={avatarSrc}
+                alt={avatarAlt ?? "Ryan Vince Castillo"}
+                fill
+                sizes="112px"
+                className="object-cover"
+                priority
+              />
+            </div>
+          </motion.div>
+        )}
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
           Ryan Vince Castillo · Remote developer for business owners
         </p>

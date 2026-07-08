@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -35,8 +36,18 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 sm:px-10">
         <Link
           href="/"
-          className="text-sm font-semibold tracking-tight text-foreground transition hover:opacity-80"
+          className="flex items-center gap-2.5 text-sm font-semibold tracking-tight text-foreground transition hover:opacity-80"
         >
+          <span className="relative h-8 w-8 overflow-hidden rounded-full border border-border/60 bg-muted">
+            <Image
+              src="/files/profile-photo.jpg"
+              alt=""
+              fill
+              sizes="32px"
+              className="object-cover"
+              aria-hidden
+            />
+          </span>
           Ryan Vince Castillo
         </Link>
 

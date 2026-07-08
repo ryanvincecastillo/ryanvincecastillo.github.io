@@ -81,13 +81,20 @@ export const PROJECTS: Project[] = [
     outcome:
       "The shop gets a professional web presence that drives orders to the channels it already uses — nationwide shipping messaging, fitment help on Messenger, and room to add Lazada when it launches.",
     image: "/images/ade-garage-homepage.png",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Shopify",
+      "Vercel",
+    ],
     url: "https://adegarage.vercel.app",
     category: "clientBusiness",
     role: "Full-stack engineer",
     highlights: [
       "Catalog hub linking Shopee, TikTok Shop & Messenger",
-      "Thai concept vs genuine badges and category filters",
+      "Shopify-ready architecture for future web checkout",
       "Logo-aligned cyan theme with animated product cards",
     ],
   },

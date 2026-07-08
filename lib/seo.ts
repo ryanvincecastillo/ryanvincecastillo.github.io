@@ -18,6 +18,11 @@ export const siteMetadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
   },
+  icons: {
+    icon: "/files/profile-photo.jpg",
+    shortcut: "/files/profile-photo.jpg",
+    apple: "/files/profile-photo.jpg",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
