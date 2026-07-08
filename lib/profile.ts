@@ -19,6 +19,12 @@ export type Conference = {
   role?: string;
 };
 
+export type Education = {
+  school: string;
+  degree: string;
+  period: string;
+};
+
 export const PROFILE = {
   name: "Ryan Vince Castillo",
   alternateNames: ["Ryan Castillo", "Ryan Vince Castillo"],
@@ -28,6 +34,7 @@ export const PROFILE = {
   summary:
     "Full-stack developer based in Davao City, Philippines. I build web apps, mobile apps, backend systems, and AI-assisted workflows for business owners — from local delivery platforms to multi-tenant SaaS. I work directly with clients end to end: design, build, deploy, and maintain.",
   email: "ryanvincecastillo@gmail.com",
+  cvPdfUrl: "/files/cv-2025.pdf",
   keywords: [
     "Ryan Castillo",
     "Ryan Vince Castillo",
@@ -41,7 +48,18 @@ export const PROFILE = {
   ],
 };
 
-export const EXPERIENCE: Experience[] = [
+/** One-line enterprise background — full history lives in the PDF CV. */
+export const BACKGROUND =
+  "7+ years in full-stack development. Before client and product work, I led backend and cloud development at Jairosoft Inc. (enterprise .NET, Node.js, Azure). Employment and technical detail are in my downloadable CV.";
+
+export const EDUCATION: Education = {
+  school: "University of Southeastern Philippines",
+  degree: "Bachelor of Science in Information Technology",
+  period: "2014 — 2018",
+};
+
+/** Client-facing selected work — shown on /resume and portfolio. */
+export const SELECTED_WORK: Experience[] = [
   {
     company: "RYNXPLAY",
     role: "Full-stack engineer",
@@ -59,13 +77,25 @@ export const EXPERIENCE: Experience[] = [
     url: "https://sugola.vercel.app/",
   },
   {
+    company: "ADe Garage",
+    role: "Full-stack engineer",
+    period: "2025 — Present",
+    summary:
+      "Multi-channel brand hub for a motorcycle parts shop in Tagum City — product catalog, Shopee/TikTok/Messenger ordering, and Shopify-ready architecture.",
+    url: "https://adegarage.vercel.app",
+  },
+  {
     company: "Independent / client work",
     role: "Full-stack developer",
     period: "Ongoing",
     summary:
-      "Websites, mobile apps, and internal tools for business owners and solo operators — including client sites, automations, and AI workflows.",
+      "Websites, mobile apps, and internal tools for business owners — including Reynalyn Grace, automations, and AI-assisted workflows.",
+    url: "https://ryanvincecastillo.com/work/",
   },
 ];
+
+/** @deprecated Use SELECTED_WORK — kept for any legacy imports */
+export const EXPERIENCE = SELECTED_WORK;
 
 export const ACHIEVEMENTS: Achievement[] = [
   {
@@ -81,15 +111,22 @@ export const ACHIEVEMENTS: Achievement[] = [
     year: "2021",
   },
   {
+    title: "Launched ADe Garage brand hub",
+    detail:
+      "Client site for a Tagum City motorcycle parts shop — catalog, marketplace channel links, and logo-aligned brand experience.",
+    year: "2025",
+  },
+  {
     title: "End-to-end product delivery",
     detail:
-      "Designed, built, and deployed client websites and mobile apps — from Reynalyn Grace to multiple Flutter and Next.js products.",
+      "Designed, built, and deployed client websites and mobile apps across Flutter, Next.js, and .NET.",
   },
 ];
 
 /** Add conferences, talks, or community events here when ready. */
 export const CONFERENCES: Conference[] = [];
 
+/** Client-relevant skills — full list in cv-2025.pdf */
 export const SKILLS = [
   "TypeScript",
   "React",
@@ -98,10 +135,9 @@ export const SKILLS = [
   ".NET",
   "Flutter",
   "PostgreSQL",
-  "Supabase",
+  "Shopify",
   "AI-assisted development",
   "Docker",
   "Azure",
-  "Railway",
   "Vercel",
 ];

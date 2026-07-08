@@ -1,21 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight, Mail } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Download, Mail } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { ContactSection } from "@/components/contact-section";
 import { SiteFooter } from "@/components/site-footer";
 import {
   ACHIEVEMENTS,
+  BACKGROUND,
   CONFERENCES,
-  EXPERIENCE,
+  EDUCATION,
   PROFILE,
+  SELECTED_WORK,
   SKILLS,
 } from "@/lib/profile";
 
 export const metadata: Metadata = {
   title: "Resume — Ryan Vince Castillo | Full-Stack & AI Developer",
   description:
-    "Resume of Ryan Vince Castillo (Ryan Castillo) — full-stack and AI developer in Davao City, Philippines. Experience with RYNXPLAY, SUGOLA, and client software projects.",
+    "Resume of Ryan Vince Castillo (Ryan Castillo) — full-stack and AI developer in Davao City, Philippines. Selected work: RYNXPLAY, SUGOLA, ADe Garage, and client projects.",
   alternates: {
     canonical: "https://ryanvincecastillo.com/resume/",
   },
@@ -48,13 +50,24 @@ export default function ResumePage() {
             <p className="mt-5 text-lg leading-relaxed text-foreground/85">
               {PROFILE.headline}
             </p>
-            <a
-              href={`mailto:${PROFILE.email}`}
-              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground hover:opacity-80"
-            >
-              <Mail className="h-4 w-4" />
-              {PROFILE.email}
-            </a>
+            <div className="mt-6 flex flex-wrap items-center gap-4">
+              <a
+                href={`mailto:${PROFILE.email}`}
+                className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:opacity-80"
+              >
+                <Mail className="h-4 w-4" />
+                {PROFILE.email}
+              </a>
+              <a
+                href={PROFILE.cvPdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card px-4 py-2 text-sm font-medium text-foreground transition hover:bg-muted"
+              >
+                <Download className="h-4 w-4" />
+                Download full CV (PDF)
+              </a>
+            </div>
           </header>
 
           <section className="py-10">
@@ -68,10 +81,16 @@ export default function ResumePage() {
 
           <section className="border-t border-border/60 py-10">
             <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-              Experience
+              Selected work
             </h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Client and product builds with live links.{" "}
+              <Link href="/work/" className="font-medium text-foreground underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground/60">
+                View portfolio →
+              </Link>
+            </p>
             <ul className="mt-6 space-y-8">
-              {EXPERIENCE.map((item) => (
+              {SELECTED_WORK.map((item) => (
                 <li key={`${item.company}-${item.role}`}>
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <h3 className="text-xl font-semibold text-foreground">
@@ -94,7 +113,9 @@ export default function ResumePage() {
                       rel="noopener noreferrer"
                       className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-foreground hover:opacity-80"
                     >
-                      Visit site
+                      {item.company === "Independent / client work"
+                        ? "View all work"
+                        : "Visit site"}
                       <ArrowUpRight className="h-4 w-4" />
                     </a>
                   )}
@@ -105,7 +126,16 @@ export default function ResumePage() {
 
           <section className="border-t border-border/60 py-10">
             <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-              Achievements
+              Background
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              {BACKGROUND}
+            </p>
+          </section>
+
+          <section className="border-t border-border/60 py-10">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+              Highlights
             </h2>
             <ul className="mt-6 space-y-5">
               {ACHIEVEMENTS.map((item) => (
@@ -148,8 +178,22 @@ export default function ResumePage() {
 
           <section className="border-t border-border/60 py-10">
             <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+              Education
+            </h2>
+            <div className="mt-4">
+              <h3 className="font-semibold text-foreground">{EDUCATION.school}</h3>
+              <p className="mt-1 text-sm text-foreground/80">{EDUCATION.degree}</p>
+              <p className="mt-1 text-sm text-muted-foreground">{EDUCATION.period}</p>
+            </div>
+          </section>
+
+          <section className="border-t border-border/60 py-10">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
               Skills
             </h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Core stack for client work. See the PDF for the full technical list.
+            </p>
             <ul className="mt-4 flex flex-wrap gap-2">
               {SKILLS.map((skill) => (
                 <li
