@@ -123,6 +123,17 @@ export const PROJECTS: Project[] = [
     category: "personal",
   },
   {
+    slug: "debtnote",
+    title: "DebtNote",
+    tagline: "Utang & pautang notebook that sends the awkward follow-ups for you.",
+    description:
+      "Track money owed to you and what you owe in one ledger. Share signed promissory agreements, schedule salary-period or paluwagan installments, and let automated email nudges (including the Shinigami Notice) do the chasing — so you don't have to be the bad guy.",
+    image: "/images/debtnote-homepage.png",
+    tech: ["Next.js", "Flutter", "Supabase", "Vercel"],
+    url: "https://debtnote.app/",
+    category: "personal",
+  },
+  {
     slug: "avocado-go",
     title: "Avocado Go",
     tagline: "Friends-first coordination app — from chat to actually showing up.",
