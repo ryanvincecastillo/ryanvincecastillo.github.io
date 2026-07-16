@@ -134,6 +134,17 @@ export const PROJECTS: Project[] = [
     category: "personal",
   },
   {
+    slug: "trupeople-hr",
+    title: "TruPeople HR",
+    tagline: "From clock-in to payslip — HR for Philippine small businesses.",
+    description:
+      "Multi-company HR for sari-sari stores, cafés, and growing teams. Staff clock in from any phone, DTR tallies automatically, payslips go out by email, and a group-wide people registry lets owners check rehire history before hiring again.",
+    image: "/images/trupeoplehr-homepage.png",
+    tech: ["NestJS", "Next.js", "Prisma", "PostgreSQL", "Railway", "Vercel"],
+    url: "https://trupeoplehr.com/",
+    category: "personal",
+  },
+  {
     slug: "avocado-go",
     title: "Avocado Go",
     tagline: "Friends-first coordination app — from chat to actually showing up.",
@@ -152,7 +163,7 @@ export const PROJECTS: Project[] = [
       "Organize godparent connections — track ninong, ninang, and inaanak relationships with birthday reminders and Pamasko mode.",
     image: "/images/inaanapp-homepage.png",
     tech: ["Flutter", "Dart", "Supabase", "Vercel"],
-    url: "https://inaanapp.vercel.app/",
+    url: "https://inaanapp.com/",
     category: "personal",
   },
   {
