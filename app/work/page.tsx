@@ -44,9 +44,9 @@ export default function WorkPage() {
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground">
-              RYNXPLAY, SUGOLA, ADe Garage, and Reynalyn Grace are
-              business-facing client work. The rest are personal apps I built
-              for fun and learning.
+              RYNXPLAY, SUGOLA, ADe Garage, TruPeople HR, and Reynalyn Grace are
+              business-facing work. The rest are personal apps I built for fun
+              and learning.
             </p>
           </header>
 

@@ -1,4 +1,4 @@
-export type ProjectCategory = "clientBusiness" | "clientWork" | "personal";
+export type ProjectCategory = "clientBusiness" | "clientWork" | "business" | "personal";
 
 export type Project = {
   slug: string;
@@ -20,6 +20,8 @@ export function getProjectLabel(project: Project): string {
       return "Client business";
     case "clientWork":
       return "Client project";
+    case "business":
+      return "Business";
     case "personal":
       return "Personal project";
   }
@@ -99,6 +101,25 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
+    slug: "trupeople-hr",
+    title: "TruPeople HR",
+    tagline: "From clock-in to payslip — HR for Philippine small businesses.",
+    description:
+      "TruPeople HR is a multi-tenant SaaS for sari-sari stores, cafés, and growing teams across the Philippines. Staff clock in from any phone, DTR tallies automatically, payslips go out by email, and a group-wide people registry lets owners check rehire history before hiring again.",
+    outcome:
+      "Owners replace spreadsheet payroll and paper DTR with one login across multiple companies — clock-in, leave, org chart, and rehire screening without enterprise HR bloat.",
+    image: "/images/trupeoplehr-homepage.png",
+    tech: ["NestJS", "Next.js", "Prisma", "PostgreSQL", "Railway", "Vercel"],
+    url: "https://trupeoplehr.com/",
+    category: "business",
+    role: "Founder & full-stack engineer",
+    highlights: [
+      "Clock-in, DTR, and emailed payslips from any phone",
+      "Multi-company ops with org chart & people registry",
+      "Rehire check across affiliated businesses",
+    ],
+  },
+  {
     slug: "reynalyn-grace",
     title: "Reynalyn Grace",
     tagline: "Professional website for a virtual assistant.",
@@ -131,17 +152,6 @@ export const PROJECTS: Project[] = [
     image: "/images/debtnote-homepage.png",
     tech: ["Next.js", "Flutter", "Supabase", "Vercel"],
     url: "https://debtnote.app/",
-    category: "personal",
-  },
-  {
-    slug: "trupeople-hr",
-    title: "TruPeople HR",
-    tagline: "From clock-in to payslip — HR for Philippine small businesses.",
-    description:
-      "Multi-company HR for sari-sari stores, cafés, and growing teams. Staff clock in from any phone, DTR tallies automatically, payslips go out by email, and a group-wide people registry lets owners check rehire history before hiring again.",
-    image: "/images/trupeoplehr-homepage.png",
-    tech: ["NestJS", "Next.js", "Prisma", "PostgreSQL", "Railway", "Vercel"],
-    url: "https://trupeoplehr.com/",
     category: "personal",
   },
   {
@@ -191,7 +201,10 @@ export const PROJECTS: Project[] = [
 ];
 
 export const CLIENT_BUSINESS = PROJECTS.filter(
-  (p) => p.category === "clientBusiness" || p.category === "clientWork"
+  (p) =>
+    p.category === "clientBusiness" ||
+    p.category === "clientWork" ||
+    p.category === "business",
 );
 export const PERSONAL_PROJECTS = PROJECTS.filter((p) => p.category === "personal");
 export const PROFESSIONAL_WORK = PROJECTS.filter((p) => p.category !== "personal");
