@@ -134,12 +134,12 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "rynxpense",
-    title: "RynxPense",
-    tagline: "AI trip budget planner — plan every peso.",
+    title: "Rynxpense",
+    tagline: "Travel budget decision engine for Filipino travelers.",
     description:
-      "Enter a destination, dates, and budget to get a day-by-day AI itinerary with estimated costs. Track spending during the trip, stay on budget in real time, and share the plan with friends or family.",
+      "Ask “can I afford this trip?” before you book. Set a destination and peso budget, see breathing room and free-to-spend, check purchases before you swipe, and get cost-line tradeoffs when the plan doesn’t fit — free, no account needed.",
     image: "/images/rynxpense-homepage.png",
-    tech: ["Next.js", "Prisma", "PostgreSQL", "Groq AI", "Expo", "Vercel"],
+    tech: ["Next.js", "Prisma", "PostgreSQL", "Vercel"],
     url: "https://rynxpense.com/",
     category: "personal",
   },
