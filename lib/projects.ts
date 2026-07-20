@@ -65,7 +65,7 @@ export const PROJECTS: Project[] = [
       "A barangay-scale alternative to national delivery apps — instant booking, local riders who know the area, and live tracking for 3K+ customers since 2021.",
     image: "/images/sugola-homepage.png",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
-    url: "https://sugola.vercel.app/",
+    url: "https://sugola.com/",
     category: "clientBusiness",
     role: "Full-stack engineer",
     highlights: [
@@ -131,6 +131,17 @@ export const PROJECTS: Project[] = [
     tech: ["Wix"],
     url: "https://ryanvincecastillo.wixsite.com/reynalyn-grace",
     category: "clientWork",
+  },
+  {
+    slug: "tekadok",
+    title: "TekaDok",
+    tagline: "AI inbox for hospital rounds — paste nurse chats, confirm before anything files.",
+    description:
+      "Ward updates from Viber, Messenger, and SMS land in one calm patient inbox. TekaDok structures Taglish shorthand for review, keeps the original message beside every summary, and never attaches an update until you confirm — built for doctors on Philippine wards, not hospital IT projects.",
+    image: "/images/tekadok-homepage.png",
+    tech: ["Angular", "Supabase", "Vercel"],
+    url: "https://tekadok.app/",
+    category: "personal",
   },
   {
     slug: "rynxpense",

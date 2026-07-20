@@ -34,7 +34,7 @@ export const PROFILE = {
   summary:
     "Full-stack developer based in Davao City, Philippines. I build web apps, mobile apps, backend systems, and AI-assisted workflows for business owners — from local delivery platforms to multi-tenant SaaS. I work directly with clients end to end: design, build, deploy, and maintain.",
   email: "ryanvincecastillo@gmail.com",
-  cvPdfUrl: "/files/cv-2025.pdf",
+  cvPdfUrl: "/files/cv-2026.pdf",
   keywords: [
     "Ryan Castillo",
     "Ryan Vince Castillo",
@@ -82,7 +82,7 @@ export const SELECTED_WORK: Experience[] = [
     period: "2021 — Present",
     summary:
       "Local delivery and errands platform for Sto. Tomas, Davao del Norte — web booking, rider dispatch, and mobile apps serving 3K+ customers.",
-    url: "https://sugola.vercel.app/",
+    url: "https://sugola.com/",
   },
   {
     company: "ADe Garage",
@@ -140,17 +140,18 @@ export const ACHIEVEMENTS: Achievement[] = [
 /** Add conferences, talks, or community events here when ready. */
 export const CONFERENCES: Conference[] = [];
 
-/** Client-relevant skills — full list in cv-2025.pdf */
+/** Client-relevant skills — full list in cv-2026.pdf */
 export const SKILLS = [
   "TypeScript",
   "React",
   "Next.js",
   "Node.js",
   ".NET",
-  "Flutter",
   "PostgreSQL",
-  "Shopify",
   "AI-assisted development",
+  "LLM / agent integrations",
+  "Cursor / Claude Code / Codex",
+  "Flutter",
   "Docker",
   "Azure",
   "Vercel",
