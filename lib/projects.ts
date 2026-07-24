@@ -12,6 +12,8 @@ export type Project = {
   category: ProjectCategory;
   role?: string;
   highlights?: string[];
+  /** Show an AI pill when the product uses LLM / AI features */
+  usesAi?: boolean;
 };
 
 export function getProjectLabel(project: Project): string {
@@ -142,6 +144,7 @@ export const PROJECTS: Project[] = [
     tech: ["Angular", "Supabase", "Vercel"],
     url: "https://tekadok.app/",
     category: "personal",
+    usesAi: true,
   },
   {
     slug: "rynxpense",
@@ -153,6 +156,7 @@ export const PROJECTS: Project[] = [
     tech: ["Next.js", "Prisma", "PostgreSQL", "Vercel"],
     url: "https://rynxpense.com/",
     category: "personal",
+    usesAi: true,
   },
   {
     slug: "debtnote",

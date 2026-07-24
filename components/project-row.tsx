@@ -76,8 +76,13 @@ export function ProjectRow({
           </p>
         )}
 
-        {project.tech.length > 0 && (
+        {(project.usesAi || project.tech.length > 0) && (
           <ul className="mt-6 flex flex-wrap gap-2">
+            {project.usesAi && (
+              <li className="rounded-full border border-violet-500/35 bg-violet-500/10 px-3 py-1 text-xs font-semibold text-violet-700 dark:text-violet-300">
+                AI
+              </li>
+            )}
             {project.tech.map((t) => (
               <li
                 key={t}

@@ -39,8 +39,13 @@ export function ProjectCard({
         </h3>
         <p className="mt-1 text-sm text-muted-foreground">{project.tagline}</p>
 
-        {project.tech.length > 0 && (
+        {(project.usesAi || project.tech.length > 0) && (
           <ul className="mt-4 flex flex-wrap gap-1.5">
+            {project.usesAi && (
+              <li className="rounded-full border border-violet-500/35 bg-violet-500/10 px-2.5 py-0.5 text-xs font-semibold text-violet-700 dark:text-violet-300">
+                AI
+              </li>
+            )}
             {project.tech.map((t) => (
               <li
                 key={t}
